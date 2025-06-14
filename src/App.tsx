@@ -23,6 +23,11 @@ import InstagramBioGenerator from "./pages/tools/InstagramBioGenerator";
 import PlagiarismChecker from "./pages/tools/PlagiarismChecker";
 import ArticleRewriter from "./pages/tools/ArticleRewriter";
 import GrammarChecker from "./pages/tools/GrammarChecker";
+import WhoisLookup from "./pages/tools/WhoisLookup";
+import DomainAge from "./pages/tools/DomainAge";
+import DNSLookup from "./pages/tools/DNSLookup";
+import IPLocation from "./pages/tools/IPLocation";
+import ServerStatus from "./pages/tools/ServerStatus";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +56,11 @@ const App = () => (
             <Route path="/tools/plagiarism-checker" element={<PlagiarismChecker />} />
             <Route path="/tools/article-rewriter" element={<ArticleRewriter />} />
             <Route path="/tools/grammar-checker" element={<GrammarChecker />} />
+            <Route path="/tools/whois-lookup" element={<WhoisLookup />} />
+            <Route path="/tools/domain-age" element={<DomainAge />} />
+            <Route path="/tools/dns-lookup" element={<DNSLookup />} />
+            <Route path="/tools/ip-location" element={<IPLocation />} />
+            <Route path="/tools/server-status" element={<ServerStatus />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
