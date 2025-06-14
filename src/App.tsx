@@ -17,6 +17,9 @@ import ParaphrasingTool from "./pages/tools/ParaphrasingTool";
 import StylishFonts from "./pages/tools/StylishFonts";
 import RobotsGenerator from "./pages/tools/RobotsGenerator";
 import SitemapGenerator from "./pages/tools/SitemapGenerator";
+import YouTubeTitleGenerator from "./pages/tools/YouTubeTitleGenerator";
+import YouTubeTagsExtractor from "./pages/tools/YouTubeTagsExtractor";
+import InstagramBioGenerator from "./pages/tools/InstagramBioGenerator";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +42,9 @@ const App = () => (
             <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
             <Route path="/tools/robots-generator" element={<RobotsGenerator />} />
             <Route path="/tools/sitemap-generator" element={<SitemapGenerator />} />
+            <Route path="/tools/youtube-title-generator" element={<YouTubeTitleGenerator />} />
+            <Route path="/tools/youtube-tags" element={<YouTubeTagsExtractor />} />
+            <Route path="/tools/instagram-bio" element={<InstagramBioGenerator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
