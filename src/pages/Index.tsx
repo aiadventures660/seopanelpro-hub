@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Globe, Smartphone, PenTool, Wrench } from 'lucide-react';
+import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
@@ -9,7 +9,7 @@ import SearchResults from '@/components/SearchResults';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools } from '@/data/tools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools } from '@/data/tools';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,7 +24,8 @@ const Index = () => {
     ...socialMediaTools, 
     ...contentTools,
     ...domainTools,
-    ...utilityTools
+    ...utilityTools,
+    ...calculationTools
   ];
 
   const handleSearch = (query: string) => {
@@ -105,6 +106,15 @@ const Index = () => {
               icon={Wrench}
               tools={utilityTools}
               category="utility"
+            />
+
+            <CategorySection
+              title="Calculation & Misc Tools"
+              description="Calculators, analyzers, and other helpful miscellaneous tools"
+              icon={Calculator}
+              tools={calculationTools}
+              category="calculation"
+              variant="secondary"
             />
 
             <TrustSection />

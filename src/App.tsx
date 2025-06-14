@@ -84,6 +84,15 @@ import ProfilePictureResizer from "./pages/tools/ProfilePictureResizer";
 import SocialMediaScheduler from "./pages/tools/SocialMediaScheduler";
 import FacebookAdHeadlineGenerator from "./pages/tools/FacebookAdHeadlineGenerator";
 
+// Calculation & Misc Tools
+import ReadabilityScoreChecker from "./pages/tools/ReadabilityScoreChecker";
+import TypingSpeedTest from "./pages/tools/TypingSpeedTest";
+import LoanEMICalculator from "./pages/tools/LoanEMICalculator";
+import BMICalculator from "./pages/tools/BMICalculator";
+import AgeCalculator from "./pages/tools/AgeCalculator";
+import RandomPasswordGenerator from "./pages/tools/RandomPasswordGenerator";
+import ColorContrastChecker from "./pages/tools/ColorContrastChecker";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -171,6 +180,15 @@ const App = () => (
             <Route path="/tools/gzip-test" element={<GZIPTest />} />
             <Route path="/tools/minify-tool" element={<MinifyTool />} />
             <Route path="/tools/user-agent-parser" element={<UserAgentParser />} />
+            
+            {/* Calculation & Misc Tools */}
+            <Route path="/tools/readability-score-checker" element={<ReadabilityScoreChecker />} />
+            <Route path="/tools/typing-speed-test" element={<TypingSpeedTest />} />
+            <Route path="/tools/loan-emi-calculator" element={<LoanEMICalculator />} />
+            <Route path="/tools/bmi-calculator" element={<BMICalculator />} />
+            <Route path="/tools/age-calculator" element={<AgeCalculator />} />
+            <Route path="/tools/random-password-generator" element={<RandomPasswordGenerator />} />
+            <Route path="/tools/color-contrast-checker" element={<ColorContrastChecker />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
