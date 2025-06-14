@@ -2,8 +2,6 @@
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import ToolCard from '@/components/ToolCard';
 import { Tool } from '@/data/tools';
 import { storeToolPosition } from '@/hooks/useScrollPosition';
@@ -29,17 +27,6 @@ const CategorySection = ({
     ? 'bg-gray-50/50 dark:bg-gray-800/50' 
     : 'bg-white/50 dark:bg-gray-900/50';
 
-  // Show first 4 tools in grid
-  const displayTools = tools.slice(0, 4);
-
-  const handleViewAll = () => {
-    // Create a custom event to communicate with the parent component
-    const event = new CustomEvent('viewAllTools', { 
-      detail: { category, tools } 
-    });
-    window.dispatchEvent(event);
-  };
-
   const handleToolClick = (tool: Tool) => {
     storeToolPosition(tool.id);
   };
@@ -59,27 +46,13 @@ const CategorySection = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {displayTools.map((tool) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {tools.map((tool) => (
             <div key={tool.id} id={`tool-${tool.id}`} onClick={() => handleToolClick(tool)}>
               <ToolCard tool={tool} />
             </div>
           ))}
         </div>
-
-        {tools.length > 4 && (
-          <div className="text-center">
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="group border-2 hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer"
-              onClick={handleViewAll}
-            >
-              View All {tools.length} {title}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );

@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TrendingUp, Globe, Smartphone, PenTool, Wrench } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchResults from '@/components/SearchResults';
-import ViewAllCategory from '@/components/ViewAllCategory';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
@@ -16,7 +15,6 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTools, setFilteredTools] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [viewAllCategory, setViewAllCategory] = useState(null);
 
   // Use the scroll hook to scroll to the last viewed tool
   useScrollToTool();
@@ -29,21 +27,8 @@ const Index = () => {
     ...utilityTools
   ];
 
-  // Listen for view all events
-  useEffect(() => {
-    const handleViewAllTools = (event) => {
-      setViewAllCategory(event.detail);
-      setIsSearching(false);
-      setSearchQuery('');
-    };
-
-    window.addEventListener('viewAllTools', handleViewAllTools);
-    return () => window.removeEventListener('viewAllTools', handleViewAllTools);
-  }, []);
-
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setViewAllCategory(null);
     if (query.length > 0) {
       setIsSearching(true);
       const filtered = allTools.filter(tool =>
@@ -59,7 +44,6 @@ const Index = () => {
   };
 
   const handleBackToHome = () => {
-    setViewAllCategory(null);
     setIsSearching(false);
     setSearchQuery('');
   };
@@ -75,12 +59,6 @@ const Index = () => {
           <SearchResults 
             filteredTools={filteredTools}
             searchQuery={searchQuery}
-            onBackToHome={handleBackToHome}
-          />
-        ) : viewAllCategory ? (
-          <ViewAllCategory 
-            category={viewAllCategory.category}
-            tools={viewAllCategory.tools}
             onBackToHome={handleBackToHome}
           />
         ) : (
