@@ -32,7 +32,7 @@ const CategorySection = ({
   };
 
   return (
-    <section className={`py-16 px-4 ${bgClass}`} id={category}>
+    <section className={`py-16 px-4 ${bgClass} border-2 border-indigo-200 dark:border-indigo-700 animate-pulse-border rounded-lg mx-4 my-8`} id={category}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6">
