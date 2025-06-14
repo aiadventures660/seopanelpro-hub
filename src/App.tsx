@@ -54,7 +54,7 @@ import SSLChecker from "./pages/tools/SSLChecker";
 import RedirectChecker from "./pages/tools/RedirectChecker";
 import TextHtmlRatio from "./pages/tools/TextHtmlRatio";
 
-// New Content tools
+// Content tools
 import AIBlogTitleGenerator from "./pages/tools/AIBlogTitleGenerator";
 import CatchyHookGenerator from "./pages/tools/CatchyHookGenerator";
 import BulletPointConverter from "./pages/tools/BulletPointConverter";
@@ -65,6 +65,17 @@ import AITweetGenerator from "./pages/tools/AITweetGenerator";
 import EssayRewriterTool from "./pages/tools/EssayRewriterTool";
 import PunctuationChecker from "./pages/tools/PunctuationChecker";
 import YouTubeScriptGenerator from "./pages/tools/YouTubeScriptGenerator";
+
+// New Social Media tools
+import YouTubeDescriptionGenerator from "./pages/tools/YouTubeDescriptionGenerator";
+import YouTubeChannelAnalyzer from "./pages/tools/YouTubeChannelAnalyzer";
+import YouTubeTagsSuggestion from "./pages/tools/YouTubeTagsSuggestion";
+import InstagramFontGenerator from "./pages/tools/InstagramFontGenerator";
+import TikTokCaptionGenerator from "./pages/tools/TikTokCaptionGenerator";
+import HashtagGenerator from "./pages/tools/HashtagGenerator";
+import ProfilePictureResizer from "./pages/tools/ProfilePictureResizer";
+import SocialMediaScheduler from "./pages/tools/SocialMediaScheduler";
+import FacebookAdHeadlineGenerator from "./pages/tools/FacebookAdHeadlineGenerator";
 
 const queryClient = new QueryClient();
 
@@ -103,6 +114,15 @@ const App = () => (
             <Route path="/tools/youtube-tags" element={<YouTubeTagsExtractor />} />
             <Route path="/tools/instagram-bio" element={<InstagramBioGenerator />} />
             <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
+            <Route path="/tools/youtube-description-generator" element={<YouTubeDescriptionGenerator />} />
+            <Route path="/tools/youtube-channel-analyzer" element={<YouTubeChannelAnalyzer />} />
+            <Route path="/tools/youtube-tags-suggestion" element={<YouTubeTagsSuggestion />} />
+            <Route path="/tools/instagram-font-generator" element={<InstagramFontGenerator />} />
+            <Route path="/tools/tiktok-caption-generator" element={<TikTokCaptionGenerator />} />
+            <Route path="/tools/hashtag-generator-reels" element={<HashtagGenerator />} />
+            <Route path="/tools/profile-picture-resizer" element={<ProfilePictureResizer />} />
+            <Route path="/tools/social-media-scheduler" element={<SocialMediaScheduler />} />
+            <Route path="/tools/facebook-ad-headline-generator" element={<FacebookAdHeadlineGenerator />} />
             
             {/* Content Tools */}
             <Route path="/tools/plagiarism-checker" element={<PlagiarismChecker />} />
