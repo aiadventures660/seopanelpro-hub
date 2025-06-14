@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -49,10 +48,10 @@ const SSLChecker = () => {
   };
 
   const getExpiryStatus = (days: number) => {
-    if (days < 0) return { color: 'destructive', text: 'Expired', icon: XCircle };
-    if (days < 30) return { color: 'destructive', text: 'Expires Soon', icon: AlertTriangle };
-    if (days < 90) return { color: 'secondary', text: 'Valid', icon: CheckCircle };
-    return { color: 'default', text: 'Valid', icon: CheckCircle };
+    if (days < 0) return { color: 'destructive' as const, text: 'Expired', icon: XCircle };
+    if (days < 30) return { color: 'destructive' as const, text: 'Expires Soon', icon: AlertTriangle };
+    if (days < 90) return { color: 'outline' as const, text: 'Valid', icon: CheckCircle };
+    return { color: 'default' as const, text: 'Valid', icon: CheckCircle };
   };
 
   return (
