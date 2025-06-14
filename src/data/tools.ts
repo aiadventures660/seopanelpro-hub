@@ -1,4 +1,3 @@
-
 export interface Tool {
   id: string;
   name: string;
@@ -78,6 +77,88 @@ export const seoTools: Tool[] = [
     category: 'SEO',
     icon: '🎯',
     route: '/tools/longtail-keywords'
+  },
+  {
+    id: 'canonical-tag-generator',
+    name: 'Canonical Tag Generator',
+    description: 'Generate canonical tags to prevent duplicate content issues',
+    category: 'SEO',
+    icon: '🔗',
+    route: '/tools/canonical-tag-generator'
+  },
+  {
+    id: 'hreflang-generator',
+    name: 'Hreflang Tag Generator',
+    description: 'Generate hreflang tags for international SEO and multilingual sites',
+    category: 'SEO',
+    icon: '🌍',
+    route: '/tools/hreflang-generator'
+  },
+  {
+    id: 'opengraph-generator',
+    name: 'Open Graph Meta Tag Generator',
+    description: 'Create Open Graph meta tags for better social media sharing',
+    category: 'SEO',
+    icon: '📱',
+    route: '/tools/opengraph-generator',
+    popular: true
+  },
+  {
+    id: 'twitter-card-generator',
+    name: 'Twitter Card Generator',
+    description: 'Generate Twitter Card meta tags for enhanced Twitter sharing',
+    category: 'SEO',
+    icon: '🐦',
+    route: '/tools/twitter-card-generator'
+  },
+  {
+    id: 'seo-score-checker',
+    name: 'SEO Score Checker',
+    description: 'Analyze your website SEO score and get improvement recommendations',
+    category: 'SEO',
+    icon: '📈',
+    route: '/tools/seo-score-checker',
+    featured: true
+  },
+  {
+    id: 'mobile-friendly-test',
+    name: 'Mobile-Friendly Test',
+    description: 'Test if your website is mobile-friendly and get optimization tips',
+    category: 'SEO',
+    icon: '📱',
+    route: '/tools/mobile-friendly-test'
+  },
+  {
+    id: 'keyword-position-tracker',
+    name: 'Keyword Position Tracker',
+    description: 'Track your keyword rankings in search engine results',
+    category: 'SEO',
+    icon: '📍',
+    route: '/tools/keyword-position-tracker'
+  },
+  {
+    id: 'ssl-checker',
+    name: 'SSL Checker',
+    description: 'Check SSL certificate status and security for any website',
+    category: 'SEO',
+    icon: '🔒',
+    route: '/tools/ssl-checker'
+  },
+  {
+    id: 'redirect-checker',
+    name: 'Redirect Checker',
+    description: 'Check HTTP redirects (301, 302) and redirect chains',
+    category: 'SEO',
+    icon: '↩️',
+    route: '/tools/redirect-checker'
+  },
+  {
+    id: 'text-html-ratio',
+    name: 'Text-to-HTML Ratio Checker',
+    description: 'Analyze the text-to-HTML ratio of your web pages for SEO',
+    category: 'SEO',
+    icon: '📝',
+    route: '/tools/text-html-ratio'
   }
 ];
 
