@@ -1,8 +1,6 @@
-
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { Tool } from '@/data/tools';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools } from '@/data/tools';
+import { Tool, seoTools, socialMediaTools, contentTools, domainTools, utilityTools } from '@/data/tools';
 
 interface ToolUsageStats {
   tool_id: string;
