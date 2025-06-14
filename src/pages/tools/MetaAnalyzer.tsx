@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,7 @@ import { Search, CheckCircle, AlertCircle, Globe } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 
 interface MetaData {
   title: string;
@@ -74,6 +74,8 @@ const MetaAnalyzer = () => {
       
       <main className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
+          <BackButton />
+          
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6">
               <Search className="h-8 w-8 text-white" />

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,7 @@ import { Youtube, Download, Image as ImageIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 
 interface ThumbnailQuality {
   name: string;
@@ -120,6 +120,8 @@ const YouTubeThumbnail = () => {
       
       <main className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
+          <BackButton />
+          
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl mb-6">
               <Youtube className="h-8 w-8 text-white" />

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -6,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { FileText, Clock, BarChart3 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 
 interface TextStats {
   characters: number;
@@ -76,6 +76,8 @@ const WordCounter = () => {
       
       <main className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
+          <BackButton />
+          
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6">
               <FileText className="h-8 w-8 text-white" />

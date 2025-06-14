@@ -11,6 +11,7 @@ import { QrCode, Download, Share2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 
 const QRGenerator = () => {
   const [qrData, setQrData] = useState('');
@@ -73,6 +74,8 @@ const QRGenerator = () => {
       
       <main className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
+          <BackButton />
+          
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6">
               <QrCode className="h-8 w-8 text-white" />
