@@ -181,7 +181,7 @@ const ServerStatus = () => {
                       <div key={index} className="flex items-center justify-between text-xs p-2 bg-gray-50 dark:bg-gray-800 rounded">
                         <span>{entry.time}</span>
                         <div className="flex items-center gap-2">
-                          <Badge size="sm" className={getStatusBadge(entry.status)}>
+                          <Badge className={getStatusBadge(entry.status)}>
                             {entry.status}
                           </Badge>
                           <span className={getResponseTimeColor(entry.responseTime)}>
