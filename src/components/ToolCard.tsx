@@ -37,16 +37,16 @@ const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
 
   return (
     <Card 
-      className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-105"
+      className="group hover:shadow-md transition-all duration-300 cursor-pointer border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-[1.02] h-fit"
       onClick={handleClick}
     >
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-2 p-4">
         <div className="flex items-start justify-between">
-          <div className="text-3xl mb-2">{tool.icon}</div>
-          <div className="flex items-center gap-2">
+          <div className="text-2xl mb-1">{tool.icon}</div>
+          <div className="flex items-center gap-1">
             {isPopular && (
-              <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-xs">
-                <Star className="h-3 w-3 mr-1" />
+              <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-xs px-2 py-0.5">
+                <Star className="h-2.5 w-2.5 mr-1" />
                 Popular
               </Badge>
             )}
@@ -54,34 +54,34 @@ const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
               variant="ghost"
               size="sm"
               onClick={handleBookmarkClick}
-              className={`p-2 transition-colors ${
+              className={`p-1.5 h-auto transition-colors ${
                 bookmarked 
                   ? 'text-red-500 hover:text-red-600' 
                   : 'text-gray-400 hover:text-red-500'
               }`}
             >
-              <Heart className={`h-4 w-4 ${bookmarked ? 'fill-current' : ''}`} />
+              <Heart className={`h-3.5 w-3.5 ${bookmarked ? 'fill-current' : ''}`} />
             </Button>
           </div>
         </div>
-        <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+        <CardTitle className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
           {tool.name}
         </CardTitle>
-        <CardDescription className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+        <CardDescription className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed">
           {tool.description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 p-4">
         <div className="flex items-center justify-between">
-          <Badge variant="secondary" className="text-xs">
+          <Badge variant="secondary" className="text-xs px-2 py-0.5">
             {tool.category}
           </Badge>
           <Button 
             variant="ghost" 
             size="sm" 
-            className="opacity-0 group-hover:opacity-100 transition-opacity p-2"
+            className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 h-auto"
           >
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </Button>
         </div>
       </CardContent>

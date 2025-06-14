@@ -46,7 +46,7 @@ const CategorySection = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
           {tools.map((tool) => (
             <div key={tool.id} id={`tool-${tool.id}`} onClick={() => handleToolClick(tool)}>
               <ToolCard tool={tool} />
