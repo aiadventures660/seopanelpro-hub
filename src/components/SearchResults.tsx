@@ -4,6 +4,7 @@ import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ToolCard from '@/components/ToolCard';
 import { Tool } from '@/data/tools';
+import { storeToolPosition } from '@/hooks/useScrollPosition';
 
 interface SearchResultsProps {
   filteredTools: Tool[];
@@ -12,6 +13,11 @@ interface SearchResultsProps {
 }
 
 const SearchResults = ({ filteredTools, searchQuery, onBackToHome }: SearchResultsProps) => {
+  const handleToolClick = (tool: Tool) => {
+    console.log(`Search result tool clicked: ${tool.name} (ID: ${tool.id})`);
+    storeToolPosition(tool.id);
+  };
+
   return (
     <section className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
@@ -24,7 +30,9 @@ const SearchResults = ({ filteredTools, searchQuery, onBackToHome }: SearchResul
         {filteredTools.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
             {filteredTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
+              <div key={tool.id} id={`tool-${tool.id}`}>
+                <ToolCard tool={tool} onToolClick={() => handleToolClick(tool)} />
+              </div>
             ))}
           </div>
         ) : (

@@ -32,6 +32,7 @@ const CategorySection = ({
     : 'from-blue-600 to-purple-600';
 
   const handleToolClick = (tool: Tool) => {
+    console.log(`Tool clicked: ${tool.name} (ID: ${tool.id})`);
     storeToolPosition(tool.id);
   };
 
@@ -60,8 +61,8 @@ const CategorySection = ({
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
           {tools.map((tool) => (
-            <div key={tool.id} id={`tool-${tool.id}`} onClick={() => handleToolClick(tool)}>
-              <ToolCard tool={tool} />
+            <div key={tool.id} id={`tool-${tool.id}`}>
+              <ToolCard tool={tool} onToolClick={() => handleToolClick(tool)} />
             </div>
           ))}
         </div>

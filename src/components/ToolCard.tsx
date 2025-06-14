@@ -12,9 +12,10 @@ import { useBookmarks } from '@/hooks/useBookmarks';
 interface ToolCardProps {
   tool: Tool;
   isPopular?: boolean;
+  onToolClick?: () => void;
 }
 
-const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
+const ToolCard = ({ tool, isPopular, onToolClick }: ToolCardProps) => {
   const navigate = useNavigate();
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const [bookmarked, setBookmarked] = useState(false);
@@ -24,6 +25,11 @@ const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
   }, [tool.id, isBookmarked]);
 
   const handleClick = async () => {
+    // Call the onToolClick callback if provided (for scroll position tracking)
+    if (onToolClick) {
+      onToolClick();
+    }
+    
     // Track tool usage before navigation
     await trackToolUsage(tool.id);
     navigate(tool.route);

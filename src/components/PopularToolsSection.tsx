@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
 import { useTrendingTools } from '@/hooks/useTrendingTools';
 import { Loader2, TrendingUp, Sparkles } from 'lucide-react';
+import { storeToolPosition } from '@/hooks/useScrollPosition';
+import { Tool } from '@/data/tools';
 
 const PopularToolsSection = () => {
   const {
@@ -11,6 +13,11 @@ const PopularToolsSection = () => {
     isLoading,
     error
   } = useTrendingTools();
+
+  const handleToolClick = (tool: Tool) => {
+    console.log(`Popular tool clicked: ${tool.name} (ID: ${tool.id})`);
+    storeToolPosition(tool.id);
+  };
 
   if (isLoading) {
     return (
@@ -73,7 +80,9 @@ const PopularToolsSection = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
             {trendingTools.map(tool => (
-              <ToolCard key={tool.id} tool={tool} isPopular />
+              <div key={tool.id} id={`tool-${tool.id}`}>
+                <ToolCard tool={tool} isPopular onToolClick={() => handleToolClick(tool)} />
+              </div>
             ))}
           </div>
         </div>
