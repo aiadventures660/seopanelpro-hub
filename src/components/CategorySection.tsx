@@ -31,6 +31,14 @@ const CategorySection = ({
   // Show first 4 tools in grid
   const displayTools = tools.slice(0, 4);
 
+  const handleViewAll = () => {
+    // Create a custom event to communicate with the parent component
+    const event = new CustomEvent('viewAllTools', { 
+      detail: { category, tools } 
+    });
+    window.dispatchEvent(event);
+  };
+
   return (
     <section className={`py-16 px-4 ${bgClass}`} id={category}>
       <div className="max-w-7xl mx-auto">
@@ -57,7 +65,8 @@ const CategorySection = ({
             <Button 
               variant="outline" 
               size="lg"
-              className="group border-2 hover:border-blue-500 dark:hover:border-blue-400"
+              className="group border-2 hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer"
+              onClick={handleViewAll}
             >
               View All {tools.length} {title}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

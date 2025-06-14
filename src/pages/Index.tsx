@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, TrendingUp, Globe, Smartphone, PenTool, Wrench, Star, Users, CheckCircle, Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +17,7 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTools, setFilteredTools] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [viewAllCategory, setViewAllCategory] = useState(null);
 
   const allTools = [
     ...seoTools,
@@ -26,8 +27,21 @@ const Index = () => {
     ...utilityTools
   ];
 
+  // Listen for view all events
+  useEffect(() => {
+    const handleViewAllTools = (event) => {
+      setViewAllCategory(event.detail);
+      setIsSearching(false);
+      setSearchQuery('');
+    };
+
+    window.addEventListener('viewAllTools', handleViewAllTools);
+    return () => window.removeEventListener('viewAllTools', handleViewAllTools);
+  }, []);
+
   const handleSearch = (query: string) => {
     setSearchQuery(query);
+    setViewAllCategory(null);
     if (query.length > 0) {
       setIsSearching(true);
       const filtered = allTools.filter(tool =>
@@ -42,6 +56,12 @@ const Index = () => {
     }
   };
 
+  const handleBackToHome = () => {
+    setViewAllCategory(null);
+    setIsSearching(false);
+    setSearchQuery('');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Header />
@@ -52,7 +72,12 @@ const Index = () => {
         {isSearching ? (
           <section className="py-12 px-4">
             <div className="max-w-7xl mx-auto">
-              <h2 className="text-2xl font-bold mb-6">Search Results ({filteredTools.length})</h2>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold">Search Results ({filteredTools.length})</h2>
+                <Button variant="outline" onClick={handleBackToHome}>
+                  Back to Home
+                </Button>
+              </div>
               {filteredTools.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredTools.map((tool) => (
@@ -66,6 +91,29 @@ const Index = () => {
                   <p className="text-gray-500 dark:text-gray-400">Try searching with different keywords</p>
                 </div>
               )}
+            </div>
+          </section>
+        ) : viewAllCategory ? (
+          <section className="py-12 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    All {viewAllCategory.category} Tools
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Showing all {viewAllCategory.tools.length} tools in this category
+                  </p>
+                </div>
+                <Button variant="outline" onClick={handleBackToHome}>
+                  Back to Home
+                </Button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {viewAllCategory.tools.map((tool) => (
+                  <ToolCard key={tool.id} tool={tool} />
+                ))}
+              </div>
             </div>
           </section>
         ) : (
