@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Bookmarks from "./pages/Bookmarks";
+import ToolRequest from "./pages/ToolRequest";
 
 // Existing tools
 import MetaAnalyzer from "./pages/tools/MetaAnalyzer";
@@ -50,6 +52,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/bookmarks" element={<Bookmarks />} />
+            <Route path="/tool-request" element={<ToolRequest />} />
             
             {/* SEO Tools */}
             <Route path="/tools/meta-analyzer" element={<MetaAnalyzer />} />

@@ -9,6 +9,45 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      tool_requests: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          status: string | null
+          tool_category: string | null
+          tool_description: string
+          tool_name: string
+          updated_at: string
+          use_case: string | null
+          user_session: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          status?: string | null
+          tool_category?: string | null
+          tool_description: string
+          tool_name: string
+          updated_at?: string
+          use_case?: string | null
+          user_session?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          status?: string | null
+          tool_category?: string | null
+          tool_description?: string
+          tool_name?: string
+          updated_at?: string
+          use_case?: string | null
+          user_session?: string | null
+        }
+        Relationships: []
+      }
       tool_usage: {
         Row: {
           id: string
@@ -30,14 +69,37 @@ export type Database = {
         }
         Relationships: []
       }
+      user_bookmarks: {
+        Row: {
+          created_at: string
+          id: string
+          tool_id: string
+          user_session: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          tool_id: string
+          user_session: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          tool_id?: string
+          user_session?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       tool_usage_stats: {
         Row: {
+          avg_daily_uses: number | null
           last_used: string | null
           tool_id: string | null
           total_uses: number | null
           unique_users: number | null
+          uses_last_24_hours: number | null
           uses_last_30_days: number | null
           uses_last_7_days: number | null
         }
