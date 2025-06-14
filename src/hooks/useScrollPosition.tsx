@@ -4,20 +4,22 @@ import { useEffect } from 'react';
 export const useScrollToTool = () => {
   useEffect(() => {
     const toolId = sessionStorage.getItem('lastViewedTool');
-    if (toolId) {
+    const scrollPosition = sessionStorage.getItem('lastScrollPosition');
+    
+    if (toolId && scrollPosition) {
       // Wait for the page to fully load and render
       const timeoutId = setTimeout(() => {
+        const scrollY = parseInt(scrollPosition, 10);
+        
+        // First, scroll to the stored position
+        window.scrollTo({
+          top: scrollY,
+          behavior: 'smooth'
+        });
+        
+        // Then try to find and highlight the tool card for better UX
         const element = document.getElementById(`tool-${toolId}`);
         if (element) {
-          // Get the element's position and scroll to it with some offset for better UX
-          const elementTop = element.offsetTop;
-          const offset = 100; // Offset from top for better visibility
-          
-          window.scrollTo({
-            top: elementTop - offset,
-            behavior: 'smooth'
-          });
-          
           // Add a brief highlight effect to the tool card
           element.style.transition = 'all 0.3s ease';
           element.style.transform = 'scale(1.02)';
@@ -29,10 +31,11 @@ export const useScrollToTool = () => {
             element.style.boxShadow = '';
           }, 1000);
         }
-      }, 300); // Increased delay to ensure all components are rendered
+      }, 500); // Increased delay to ensure all components are rendered
       
-      // Clear the stored tool ID after attempting to scroll
+      // Clear the stored data after attempting to scroll
       sessionStorage.removeItem('lastViewedTool');
+      sessionStorage.removeItem('lastScrollPosition');
       
       return () => clearTimeout(timeoutId);
     }
