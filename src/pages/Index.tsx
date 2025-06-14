@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, TrendingUp, Globe, Smartphone, PenTool, Wrench, Star, Users, CheckCircle, Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useScrollToTool } from '@/hooks/useScrollPosition';
 import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, popularTools } from '@/data/tools';
 
 const Index = () => {
@@ -18,6 +18,9 @@ const Index = () => {
   const [filteredTools, setFilteredTools] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [viewAllCategory, setViewAllCategory] = useState(null);
+
+  // Use the scroll hook to scroll to the last viewed tool
+  useScrollToTool();
 
   const allTools = [
     ...seoTools,

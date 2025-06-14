@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import ToolCard from '@/components/ToolCard';
 import { Tool } from '@/data/tools';
+import { storeToolPosition } from '@/hooks/useScrollPosition';
 
 interface CategorySectionProps {
   title: string;
@@ -39,6 +40,10 @@ const CategorySection = ({
     window.dispatchEvent(event);
   };
 
+  const handleToolClick = (tool: Tool) => {
+    storeToolPosition(tool.id);
+  };
+
   return (
     <section className={`py-16 px-4 ${bgClass}`} id={category}>
       <div className="max-w-7xl mx-auto">
@@ -56,7 +61,9 @@ const CategorySection = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {displayTools.map((tool) => (
-            <ToolCard key={tool.id} tool={tool} />
+            <div key={tool.id} id={`tool-${tool.id}`} onClick={() => handleToolClick(tool)}>
+              <ToolCard tool={tool} />
+            </div>
           ))}
         </div>
 
