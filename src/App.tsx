@@ -15,6 +15,8 @@ import PageSpeedAnalyzer from "./pages/tools/PageSpeedAnalyzer";
 import KeywordDensity from "./pages/tools/KeywordDensity";
 import ParaphrasingTool from "./pages/tools/ParaphrasingTool";
 import StylishFonts from "./pages/tools/StylishFonts";
+import RobotsGenerator from "./pages/tools/RobotsGenerator";
+import SitemapGenerator from "./pages/tools/SitemapGenerator";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,8 @@ const App = () => (
             <Route path="/tools/keyword-density" element={<KeywordDensity />} />
             <Route path="/tools/paraphrasing-tool" element={<ParaphrasingTool />} />
             <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
+            <Route path="/tools/robots-generator" element={<RobotsGenerator />} />
+            <Route path="/tools/sitemap-generator" element={<SitemapGenerator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
