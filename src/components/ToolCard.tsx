@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Tool } from '@/data/tools';
 
 interface ToolCardProps {
@@ -12,8 +13,17 @@ interface ToolCardProps {
 }
 
 const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(tool.route);
+  };
+
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-105">
+    <Card 
+      className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-105"
+      onClick={handleClick}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="text-3xl mb-2">{tool.icon}</div>
