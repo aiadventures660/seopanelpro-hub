@@ -11,6 +11,10 @@ import MetaAnalyzer from "./pages/tools/MetaAnalyzer";
 import WordCounter from "./pages/tools/WordCounter";
 import QRGenerator from "./pages/tools/QRGenerator";
 import YouTubeThumbnail from "./pages/tools/YouTubeThumbnail";
+import PageSpeedAnalyzer from "./pages/tools/PageSpeedAnalyzer";
+import KeywordDensity from "./pages/tools/KeywordDensity";
+import ParaphrasingTool from "./pages/tools/ParaphrasingTool";
+import StylishFonts from "./pages/tools/StylishFonts";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,10 @@ const App = () => (
             <Route path="/tools/word-counter" element={<WordCounter />} />
             <Route path="/tools/qr-generator" element={<QRGenerator />} />
             <Route path="/tools/youtube-thumbnail" element={<YouTubeThumbnail />} />
+            <Route path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />
+            <Route path="/tools/keyword-density" element={<KeywordDensity />} />
+            <Route path="/tools/paraphrasing-tool" element={<ParaphrasingTool />} />
+            <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
