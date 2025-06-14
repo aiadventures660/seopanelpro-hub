@@ -11,6 +11,22 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onSearch, searchQuery }: HeroSectionProps) => {
+  const handleExploreAllTools = () => {
+    // Scroll to the popular tools section
+    const popularSection = document.querySelector('.popular-tools-section');
+    if (popularSection) {
+      popularSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleViewCategories = () => {
+    // Scroll to the first category section (SEO tools)
+    const firstCategory = document.getElementById('seo');
+    if (firstCategory) {
+      firstCategory.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative py-20 px-4 overflow-hidden">
       {/* Background Elements */}
@@ -53,11 +69,20 @@ const HeroSection = ({ onSearch, searchQuery }: HeroSectionProps) => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={handleExploreAllTools}
+          >
             Explore All Tools
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-4 rounded-xl text-lg font-semibold border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="px-8 py-4 rounded-xl text-lg font-semibold border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
+            onClick={handleViewCategories}
+          >
             View Categories
           </Button>
         </div>

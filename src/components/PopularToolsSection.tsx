@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
@@ -10,7 +9,7 @@ interface PopularToolsSectionProps {
 
 const PopularToolsSection = ({ popularTools }: PopularToolsSectionProps) => {
   return (
-    <section className="py-12 px-4 bg-white/50 dark:bg-gray-800/50">
+    <section className="popular-tools-section py-12 px-4 bg-white/50 dark:bg-gray-800/50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <Badge className="mb-4 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
