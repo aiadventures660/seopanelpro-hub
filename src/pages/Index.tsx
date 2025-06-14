@@ -9,7 +9,7 @@ import SearchResults from '@/components/SearchResults';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, popularTools } from '@/data/tools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools } from '@/data/tools';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,7 +63,7 @@ const Index = () => {
           />
         ) : (
           <>
-            <PopularToolsSection popularTools={popularTools} />
+            <PopularToolsSection />
 
             <CategorySection
               title="SEO & Analytics Tools"

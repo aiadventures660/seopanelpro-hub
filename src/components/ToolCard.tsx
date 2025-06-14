@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Tool } from '@/data/tools';
+import { trackToolUsage } from '@/utils/toolUsageTracker';
 
 interface ToolCardProps {
   tool: Tool;
@@ -15,7 +16,9 @@ interface ToolCardProps {
 const ToolCard = ({ tool, isPopular }: ToolCardProps) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    // Track tool usage before navigation
+    await trackToolUsage(tool.id);
     navigate(tool.route);
   };
 

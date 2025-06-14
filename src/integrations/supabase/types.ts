@@ -9,10 +9,40 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      tool_usage: {
+        Row: {
+          id: string
+          tool_id: string
+          used_at: string
+          user_session: string | null
+        }
+        Insert: {
+          id?: string
+          tool_id: string
+          used_at?: string
+          user_session?: string | null
+        }
+        Update: {
+          id?: string
+          tool_id?: string
+          used_at?: string
+          user_session?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      tool_usage_stats: {
+        Row: {
+          last_used: string | null
+          tool_id: string | null
+          total_uses: number | null
+          unique_users: number | null
+          uses_last_30_days: number | null
+          uses_last_7_days: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
