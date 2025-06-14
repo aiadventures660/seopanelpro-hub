@@ -41,6 +41,13 @@ import PasswordGenerator from "./pages/tools/PasswordGenerator";
 import TextCaseConverter from "./pages/tools/TextCaseConverter";
 import JSONFormatter from "./pages/tools/JSONFormatter";
 import UUIDGenerator from "./pages/tools/UUIDGenerator";
+import HTTPHeaderChecker from "./pages/tools/HTTPHeaderChecker";
+import SSLExpiryChecker from "./pages/tools/SSLExpiryChecker";
+import PingTool from "./pages/tools/PingTool";
+import PortScanner from "./pages/tools/PortScanner";
+import GZIPTest from "./pages/tools/GZIPTest";
+import MinifyTool from "./pages/tools/MinifyTool";
+import UserAgentParser from "./pages/tools/UserAgentParser";
 
 // SEO tools
 import CanonicalTagGenerator from "./pages/tools/CanonicalTagGenerator";
@@ -157,6 +164,13 @@ const App = () => (
             <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
             <Route path="/tools/json-formatter" element={<JSONFormatter />} />
             <Route path="/tools/uuid-generator" element={<UUIDGenerator />} />
+            <Route path="/tools/http-header-checker" element={<HTTPHeaderChecker />} />
+            <Route path="/tools/ssl-expiry-checker" element={<SSLExpiryChecker />} />
+            <Route path="/tools/ping-tool" element={<PingTool />} />
+            <Route path="/tools/port-scanner" element={<PortScanner />} />
+            <Route path="/tools/gzip-test" element={<GZIPTest />} />
+            <Route path="/tools/minify-tool" element={<MinifyTool />} />
+            <Route path="/tools/user-agent-parser" element={<UserAgentParser />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
