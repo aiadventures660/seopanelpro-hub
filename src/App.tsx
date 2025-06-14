@@ -20,6 +20,9 @@ import SitemapGenerator from "./pages/tools/SitemapGenerator";
 import YouTubeTitleGenerator from "./pages/tools/YouTubeTitleGenerator";
 import YouTubeTagsExtractor from "./pages/tools/YouTubeTagsExtractor";
 import InstagramBioGenerator from "./pages/tools/InstagramBioGenerator";
+import PlagiarismChecker from "./pages/tools/PlagiarismChecker";
+import ArticleRewriter from "./pages/tools/ArticleRewriter";
+import GrammarChecker from "./pages/tools/GrammarChecker";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +48,9 @@ const App = () => (
             <Route path="/tools/youtube-title-generator" element={<YouTubeTitleGenerator />} />
             <Route path="/tools/youtube-tags" element={<YouTubeTagsExtractor />} />
             <Route path="/tools/instagram-bio" element={<InstagramBioGenerator />} />
+            <Route path="/tools/plagiarism-checker" element={<PlagiarismChecker />} />
+            <Route path="/tools/article-rewriter" element={<ArticleRewriter />} />
+            <Route path="/tools/grammar-checker" element={<GrammarChecker />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
