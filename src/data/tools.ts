@@ -243,48 +243,66 @@ export const utilityTools: Tool[] = [
     popular: true
   },
   {
-    id: 'url-shortener',
-    name: 'URL Shortener',
-    description: 'Create short, trackable links for your URLs',
+    id: 'base64-encoder',
+    name: 'Base64 Encoder/Decoder',
+    description: 'Encode and decode text to/from Base64 format',
+    category: 'Utility',
+    icon: '🔐',
+    route: '/tools/base64-encoder'
+  },
+  {
+    id: 'url-encoder',
+    name: 'URL Encoder/Decoder',
+    description: 'Encode and decode URLs for safe transmission',
     category: 'Utility',
     icon: '🔗',
-    route: '/tools/url-shortener'
+    route: '/tools/url-encoder'
   },
   {
     id: 'color-picker',
-    name: 'Color Picker',
-    description: 'Pick colors and get hex, RGB, and HSL values',
+    name: 'Color Picker & Palette',
+    description: 'Pick colors and generate color palettes for your designs',
     category: 'Utility',
     icon: '🎨',
     route: '/tools/color-picker'
   },
   {
-    id: 'html-formatter',
-    name: 'HTML Minifier / Beautifier',
-    description: 'Minify or beautify HTML, CSS, and JavaScript code',
+    id: 'password-generator',
+    name: 'Password Generator',
+    description: 'Generate secure passwords with custom criteria',
     category: 'Utility',
-    icon: '💻',
-    route: '/tools/html-formatter'
+    icon: '🔒',
+    route: '/tools/password-generator'
   },
   {
-    id: 'image-compressor',
-    name: 'Image Compressor',
-    description: 'Compress images to reduce file size without quality loss',
+    id: 'text-case-converter',
+    name: 'Text Case Converter',
+    description: 'Convert text between different cases (upper, lower, title, etc.)',
     category: 'Utility',
-    icon: '🖼️',
-    route: '/tools/image-compressor'
+    icon: '📝',
+    route: '/tools/text-case-converter'
+  },
+  {
+    id: 'json-formatter',
+    name: 'JSON Formatter & Validator',
+    description: 'Format, validate, and minify JSON data',
+    category: 'Utility',
+    icon: '⚙️',
+    route: '/tools/json-formatter'
+  },
+  {
+    id: 'uuid-generator',
+    name: 'UUID Generator',
+    description: 'Generate unique identifiers (UUIDs) for your applications',
+    category: 'Utility',
+    icon: '🆔',
+    route: '/tools/uuid-generator'
   }
 ];
 
-export const popularTools = [
+export const popularTools: Tool[] = [
   ...seoTools.filter(tool => tool.popular),
   ...socialMediaTools.filter(tool => tool.popular),
   ...contentTools.filter(tool => tool.popular),
   ...utilityTools.filter(tool => tool.popular)
-];
-
-export const featuredTools = [
-  ...seoTools.filter(tool => tool.featured),
-  ...socialMediaTools.filter(tool => tool.featured),
-  ...contentTools.filter(tool => tool.featured)
 ];

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+
+// Existing tools
 import MetaAnalyzer from "./pages/tools/MetaAnalyzer";
 import WordCounter from "./pages/tools/WordCounter";
 import QRGenerator from "./pages/tools/QRGenerator";
@@ -29,6 +30,15 @@ import DNSLookup from "./pages/tools/DNSLookup";
 import IPLocation from "./pages/tools/IPLocation";
 import ServerStatus from "./pages/tools/ServerStatus";
 
+// New utility tools
+import Base64Encoder from "./pages/tools/Base64Encoder";
+import URLEncoder from "./pages/tools/URLEncoder";
+import ColorPicker from "./pages/tools/ColorPicker";
+import PasswordGenerator from "./pages/tools/PasswordGenerator";
+import TextCaseConverter from "./pages/tools/TextCaseConverter";
+import JSONFormatter from "./pages/tools/JSONFormatter";
+import UUIDGenerator from "./pages/tools/UUIDGenerator";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -40,27 +50,45 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            
+            {/* SEO Tools */}
             <Route path="/tools/meta-analyzer" element={<MetaAnalyzer />} />
-            <Route path="/tools/word-counter" element={<WordCounter />} />
-            <Route path="/tools/qr-generator" element={<QRGenerator />} />
-            <Route path="/tools/youtube-thumbnail" element={<YouTubeThumbnail />} />
-            <Route path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />
             <Route path="/tools/keyword-density" element={<KeywordDensity />} />
-            <Route path="/tools/paraphrasing-tool" element={<ParaphrasingTool />} />
-            <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
             <Route path="/tools/robots-generator" element={<RobotsGenerator />} />
             <Route path="/tools/sitemap-generator" element={<SitemapGenerator />} />
+            <Route path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />
+            
+            {/* Social Media Tools */}
+            <Route path="/tools/youtube-thumbnail" element={<YouTubeThumbnail />} />
             <Route path="/tools/youtube-title-generator" element={<YouTubeTitleGenerator />} />
             <Route path="/tools/youtube-tags" element={<YouTubeTagsExtractor />} />
             <Route path="/tools/instagram-bio" element={<InstagramBioGenerator />} />
+            <Route path="/tools/stylish-fonts" element={<StylishFonts />} />
+            
+            {/* Content Tools */}
             <Route path="/tools/plagiarism-checker" element={<PlagiarismChecker />} />
             <Route path="/tools/article-rewriter" element={<ArticleRewriter />} />
+            <Route path="/tools/paraphrasing-tool" element={<ParaphrasingTool />} />
             <Route path="/tools/grammar-checker" element={<GrammarChecker />} />
+            <Route path="/tools/word-counter" element={<WordCounter />} />
+            
+            {/* Domain Tools */}
             <Route path="/tools/whois-lookup" element={<WhoisLookup />} />
             <Route path="/tools/domain-age" element={<DomainAge />} />
             <Route path="/tools/dns-lookup" element={<DNSLookup />} />
             <Route path="/tools/ip-location" element={<IPLocation />} />
             <Route path="/tools/server-status" element={<ServerStatus />} />
+            
+            {/* Utility Tools */}
+            <Route path="/tools/qr-generator" element={<QRGenerator />} />
+            <Route path="/tools/base64-encoder" element={<Base64Encoder />} />
+            <Route path="/tools/url-encoder" element={<URLEncoder />} />
+            <Route path="/tools/color-picker" element={<ColorPicker />} />
+            <Route path="/tools/password-generator" element={<PasswordGenerator />} />
+            <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
+            <Route path="/tools/json-formatter" element={<JSONFormatter />} />
+            <Route path="/tools/uuid-generator" element={<UUIDGenerator />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
