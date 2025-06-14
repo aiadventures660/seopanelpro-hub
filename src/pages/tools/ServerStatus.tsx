@@ -198,7 +198,7 @@ const ServerStatus = () => {
                 <h4 className="font-medium mb-2">Status Information</h4>
                 <ul className="space-y-1">
                   <li>• <span className="text-green-600">Online:</span> Server is responding</li>
-                  <li>• <span className="text-yellow-600">Slow:</span> Response time > 1s</li>
+                  <li>• <span className="text-yellow-600">Slow:</span> Response time {'>'}1s</li>
                   <li>• <span className="text-red-600">Offline:</span> Server is unreachable</li>
                 </ul>
               </div>
