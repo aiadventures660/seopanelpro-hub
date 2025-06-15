@@ -18,6 +18,7 @@ export { domainTools } from './tools/domainTools';
 export { utilityTools } from './tools/utilityTools';
 export { calculationTools } from './tools/calculationTools';
 export { linkTools } from './tools/linkTools';
+export { viralTools } from './tools/viralTools';
 
 // Re-export for backwards compatibility
 import { seoTools } from './tools/seoTools';
@@ -27,6 +28,7 @@ import { domainTools } from './tools/domainTools';
 import { utilityTools } from './tools/utilityTools';
 import { calculationTools } from './tools/calculationTools';
 import { linkTools } from './tools/linkTools';
+import { viralTools } from './tools/viralTools';
 
 export const popularTools: Tool[] = [
   ...seoTools.filter(tool => tool.popular),

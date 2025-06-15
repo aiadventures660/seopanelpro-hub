@@ -14,6 +14,7 @@ import domainRoutes from './routes/DomainRoutes';
 import utilityRoutes from './routes/UtilityRoutes';
 import calculationRoutes from './routes/CalculationRoutes';
 import linkRoutes from './routes/LinkRoutes';
+import viralRoutes from './routes/ViralRoutes';
 
 const AppRoutes = () => (
   <Routes>
@@ -28,6 +29,7 @@ const AppRoutes = () => (
     {utilityRoutes}
     {calculationRoutes}
     {linkRoutes}
+    {viralRoutes}
 
     <Route path="*" element={<NotFound />} />
   </Routes>

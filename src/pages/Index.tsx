@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator, Link } from 'lucide-react';
+import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator, Link, Gift } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
@@ -9,11 +9,11 @@ import SearchResults from '@/components/SearchResults';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools } from '@/data/tools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools, viralTools } from '@/data/tools';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredTools, setFilteredTools] = useState([]);
+  const [filteredTools, setFilteredTools] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
   // Use the scroll hook to scroll to the last viewed tool
@@ -26,7 +26,8 @@ const Index = () => {
     ...domainTools,
     ...utilityTools,
     ...calculationTools,
-    ...linkTools
+    ...linkTools,
+    ...viralTools
   ];
 
   const handleSearch = (query: string) => {
@@ -124,6 +125,15 @@ const Index = () => {
               icon={Calculator}
               tools={calculationTools}
               category="calculation"
+            />
+
+            <CategorySection
+              title="🎁 Bonus Viral Tools"
+              description="Go viral with these powerful AI-driven content tools"
+              icon={Gift}
+              tools={viralTools}
+              category="viral"
+              variant="secondary"
             />
 
             <TrustSection />

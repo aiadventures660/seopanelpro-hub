@@ -1,7 +1,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { Tool, seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools } from '@/data/tools';
+import { Tool, seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools, viralTools } from '@/data/tools';
 
 interface ToolUsageStats {
   tool_id: string;
@@ -25,7 +25,7 @@ export const useTrendingTools = () => {
       if (error) {
         console.error('Error fetching tool usage stats:', error);
         // Fallback to static popular tools if there's an error
-        return [...seoTools, ...socialMediaTools, ...contentTools, ...domainTools, ...utilityTools, ...calculationTools]
+        return [...seoTools, ...socialMediaTools, ...contentTools, ...domainTools, ...utilityTools, ...calculationTools, ...linkTools]
           .filter(tool => tool.popular)
           .slice(0, 8);
       }
@@ -37,7 +37,9 @@ export const useTrendingTools = () => {
         ...contentTools,
         ...domainTools,
         ...utilityTools,
-        ...calculationTools
+        ...calculationTools,
+        ...linkTools,
+        ...viralTools,
       ];
 
       const trendingTools: Tool[] = [];
