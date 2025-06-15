@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator } from 'lucide-react';
+import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator, Link } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
@@ -9,7 +9,7 @@ import SearchResults from '@/components/SearchResults';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools } from '@/data/tools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools } from '@/data/tools';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,7 +25,8 @@ const Index = () => {
     ...contentTools,
     ...domainTools,
     ...utilityTools,
-    ...calculationTools
+    ...calculationTools,
+    ...linkTools
   ];
 
   const handleSearch = (query: string) => {
@@ -92,12 +93,20 @@ const Index = () => {
             />
 
             <CategorySection
+              title="Link & Backlink Tools"
+              description="Analyze backlinks, check for broken links, and manage your link profile"
+              icon={Link}
+              tools={linkTools}
+              category="link"
+              variant="secondary"
+            />
+
+            <CategorySection
               title="Domain & Network Tools"
               description="Analyze domains, check DNS, and monitor server performance"
               icon={Globe}
               tools={domainTools}
               category="domain"
-              variant="secondary"
             />
 
             <CategorySection
@@ -106,6 +115,7 @@ const Index = () => {
               icon={Wrench}
               tools={utilityTools}
               category="utility"
+              variant="secondary"
             />
 
             <CategorySection
@@ -114,7 +124,6 @@ const Index = () => {
               icon={Calculator}
               tools={calculationTools}
               category="calculation"
-              variant="secondary"
             />
 
             <TrustSection />
