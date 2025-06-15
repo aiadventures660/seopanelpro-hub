@@ -114,7 +114,7 @@ const RandomPasswordGenerator = () => {
                     <Checkbox
                       id="uppercase"
                       checked={includeUppercase}
-                      onCheckedChange={setIncludeUppercase}
+                      onCheckedChange={(checked) => setIncludeUppercase(checked === true)}
                     />
                     <Label htmlFor="uppercase">Include Uppercase Letters (A-Z)</Label>
                   </div>
@@ -123,7 +123,7 @@ const RandomPasswordGenerator = () => {
                     <Checkbox
                       id="lowercase"
                       checked={includeLowercase}
-                      onCheckedChange={setIncludeLowercase}
+                      onCheckedChange={(checked) => setIncludeLowercase(checked === true)}
                     />
                     <Label htmlFor="lowercase">Include Lowercase Letters (a-z)</Label>
                   </div>
@@ -132,7 +132,7 @@ const RandomPasswordGenerator = () => {
                     <Checkbox
                       id="numbers"
                       checked={includeNumbers}
-                      onCheckedChange={setIncludeNumbers}
+                      onCheckedChange={(checked) => setIncludeNumbers(checked === true)}
                     />
                     <Label htmlFor="numbers">Include Numbers (0-9)</Label>
                   </div>
@@ -141,7 +141,7 @@ const RandomPasswordGenerator = () => {
                     <Checkbox
                       id="symbols"
                       checked={includeSymbols}
-                      onCheckedChange={setIncludeSymbols}
+                      onCheckedChange={(checked) => setIncludeSymbols(checked === true)}
                     />
                     <Label htmlFor="symbols">Include Symbols (!@#$%^&*)</Label>
                   </div>
@@ -150,7 +150,7 @@ const RandomPasswordGenerator = () => {
                     <Checkbox
                       id="exclude-similar"
                       checked={excludeSimilar}
-                      onCheckedChange={setExcludeSimilar}
+                      onCheckedChange={(checked) => setExcludeSimilar(checked === true)}
                     />
                     <Label htmlFor="exclude-similar">Exclude Similar Characters (i, l, 1, L, o, 0, O)</Label>
                   </div>

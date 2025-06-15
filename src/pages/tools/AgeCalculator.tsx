@@ -9,7 +9,17 @@ import { Label } from '@/components/ui/label';
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState('');
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState<{
+    years: number;
+    months: number;
+    days: number;
+    totalDays: number;
+    totalHours: number;
+    totalMinutes: number;
+    totalSeconds: number;
+    daysToNextBirthday: number;
+    nextAge: number;
+  } | null>(null);
 
   const calculateAge = () => {
     if (!birthDate) return;
@@ -35,7 +45,7 @@ const AgeCalculator = () => {
     }
 
     // Calculate total days
-    const totalDays = Math.floor((today - birth) / (1000 * 60 * 60 * 24));
+    const totalDays = Math.floor((today.getTime() - birth.getTime()) / (1000 * 60 * 60 * 24));
     
     // Calculate total hours, minutes, seconds
     const totalHours = totalDays * 24;
@@ -47,7 +57,7 @@ const AgeCalculator = () => {
     if (nextBirthday < today) {
       nextBirthday.setFullYear(today.getFullYear() + 1);
     }
-    const daysToNextBirthday = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
+    const daysToNextBirthday = Math.ceil((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
     setResults({
       years,
@@ -68,7 +78,7 @@ const AgeCalculator = () => {
     }
   }, [birthDate]);
 
-  const formatNumber = (num) => {
+  const formatNumber = (num: number) => {
     return num.toLocaleString();
   };
 
