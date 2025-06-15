@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -93,6 +92,13 @@ import AgeCalculator from "./pages/tools/AgeCalculator";
 import RandomPasswordGenerator from "./pages/tools/RandomPasswordGenerator";
 import ColorContrastChecker from "./pages/tools/ColorContrastChecker";
 
+// Link & Backlink Tools
+import BacklinkChecker from "./pages/tools/BacklinkChecker";
+import LinkAnalyzer from "./pages/tools/LinkAnalyzer";
+import AnchorTextChecker from "./pages/tools/AnchorTextChecker";
+import BrokenLinkFinder from "./pages/tools/BrokenLinkFinder";
+import LinkRedirectMapper from "./pages/tools/LinkRedirectMapper";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -181,6 +187,13 @@ const App = () => (
             <Route path="/tools/minify-tool" element={<MinifyTool />} />
             <Route path="/tools/user-agent-parser" element={<UserAgentParser />} />
             
+            {/* Link & Backlink Tools */}
+            <Route path="/tools/backlink-checker" element={<BacklinkChecker />} />
+            <Route path="/tools/link-analyzer" element={<LinkAnalyzer />} />
+            <Route path="/tools/anchor-text-checker" element={<AnchorTextChecker />} />
+            <Route path="/tools/broken-link-finder" element={<BrokenLinkFinder />} />
+            <Route path="/tools/link-redirect-mapper" element={<LinkRedirectMapper />} />            
+
             {/* Calculation & Misc Tools */}
             <Route path="/tools/readability-score-checker" element={<ReadabilityScoreChecker />} />
             <Route path="/tools/typing-speed-test" element={<TypingSpeedTest />} />
