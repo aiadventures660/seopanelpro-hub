@@ -8,14 +8,12 @@ import DNSLookup from "@/pages/tools/DNSLookup";
 import IPLocation from "@/pages/tools/IPLocation";
 import ServerStatus from "@/pages/tools/ServerStatus";
 
-const DomainRoutes = () => (
-  <>
-    <Route path="/tools/whois-lookup" element={<WhoisLookup />} />
-    <Route path="/tools/domain-age" element={<DomainAge />} />
-    <Route path="/tools/dns-lookup" element={<DNSLookup />} />
-    <Route path="/tools/ip-location" element={<IPLocation />} />
-    <Route path="/tools/server-status" element={<ServerStatus />} />
-  </>
-);
+const domainRoutes = [
+  <Route key="whois-lookup" path="/tools/whois-lookup" element={<WhoisLookup />} />,
+  <Route key="domain-age" path="/tools/domain-age" element={<DomainAge />} />,
+  <Route key="dns-lookup" path="/tools/dns-lookup" element={<DNSLookup />} />,
+  <Route key="ip-location" path="/tools/ip-location" element={<IPLocation />} />,
+  <Route key="server-status" path="/tools/server-status" element={<ServerStatus />} />
+];
 
-export default DomainRoutes;
+export default domainRoutes;

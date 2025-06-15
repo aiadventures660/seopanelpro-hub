@@ -18,24 +18,22 @@ import GZIPTest from "@/pages/tools/GZIPTest";
 import MinifyTool from "@/pages/tools/MinifyTool";
 import UserAgentParser from "@/pages/tools/UserAgentParser";
 
-const UtilityRoutes = () => (
-  <>
-    <Route path="/tools/qr-generator" element={<QRGenerator />} />
-    <Route path="/tools/base64-encoder" element={<Base64Encoder />} />
-    <Route path="/tools/url-encoder" element={<URLEncoder />} />
-    <Route path="/tools/color-picker" element={<ColorPicker />} />
-    <Route path="/tools/password-generator" element={<PasswordGenerator />} />
-    <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
-    <Route path="/tools/json-formatter" element={<JSONFormatter />} />
-    <Route path="/tools/uuid-generator" element={<UUIDGenerator />} />
-    <Route path="/tools/http-header-checker" element={<HTTPHeaderChecker />} />
-    <Route path="/tools/ssl-expiry-checker" element={<SSLExpiryChecker />} />
-    <Route path="/tools/ping-tool" element={<PingTool />} />
-    <Route path="/tools/port-scanner" element={<PortScanner />} />
-    <Route path="/tools/gzip-test" element={<GZIPTest />} />
-    <Route path="/tools/minify-tool" element={<MinifyTool />} />
-    <Route path="/tools/user-agent-parser" element={<UserAgentParser />} />
-  </>
-);
+const utilityRoutes = [
+  <Route key="qr-generator" path="/tools/qr-generator" element={<QRGenerator />} />,
+  <Route key="base64-encoder" path="/tools/base64-encoder" element={<Base64Encoder />} />,
+  <Route key="url-encoder" path="/tools/url-encoder" element={<URLEncoder />} />,
+  <Route key="color-picker" path="/tools/color-picker" element={<ColorPicker />} />,
+  <Route key="password-generator" path="/tools/password-generator" element={<PasswordGenerator />} />,
+  <Route key="text-case-converter" path="/tools/text-case-converter" element={<TextCaseConverter />} />,
+  <Route key="json-formatter" path="/tools/json-formatter" element={<JSONFormatter />} />,
+  <Route key="uuid-generator" path="/tools/uuid-generator" element={<UUIDGenerator />} />,
+  <Route key="http-header-checker" path="/tools/http-header-checker" element={<HTTPHeaderChecker />} />,
+  <Route key="ssl-expiry-checker" path="/tools/ssl-expiry-checker" element={<SSLExpiryChecker />} />,
+  <Route key="ping-tool" path="/tools/ping-tool" element={<PingTool />} />,
+  <Route key="port-scanner" path="/tools/port-scanner" element={<PortScanner />} />,
+  <Route key="gzip-test" path="/tools/gzip-test" element={<GZIPTest />} />,
+  <Route key="minify-tool" path="/tools/minify-tool" element={<MinifyTool />} />,
+  <Route key="user-agent-parser" path="/tools/user-agent-parser" element={<UserAgentParser />} />
+];
 
-export default UtilityRoutes;
+export default utilityRoutes;

@@ -7,13 +7,13 @@ import NotFound from "./pages/NotFound";
 import Bookmarks from "./pages/Bookmarks";
 import ToolRequest from "./pages/ToolRequest";
 
-import SeoRoutes from './routes/SeoRoutes';
-import SocialMediaRoutes from './routes/SocialMediaRoutes';
-import ContentRoutes from './routes/ContentRoutes';
-import DomainRoutes from './routes/DomainRoutes';
-import UtilityRoutes from './routes/UtilityRoutes';
-import CalculationRoutes from './routes/CalculationRoutes';
-import LinkRoutes from './routes/LinkRoutes';
+import seoRoutes from './routes/SeoRoutes';
+import socialMediaRoutes from './routes/SocialMediaRoutes';
+import contentRoutes from './routes/ContentRoutes';
+import domainRoutes from './routes/DomainRoutes';
+import utilityRoutes from './routes/UtilityRoutes';
+import calculationRoutes from './routes/CalculationRoutes';
+import linkRoutes from './routes/LinkRoutes';
 
 const AppRoutes = () => (
   <Routes>
@@ -21,13 +21,13 @@ const AppRoutes = () => (
     <Route path="/bookmarks" element={<Bookmarks />} />
     <Route path="/tool-request" element={<ToolRequest />} />
     
-    <SeoRoutes />
-    <SocialMediaRoutes />
-    <ContentRoutes />
-    <DomainRoutes />
-    <UtilityRoutes />
-    <CalculationRoutes />
-    <LinkRoutes />
+    {seoRoutes}
+    {socialMediaRoutes}
+    {contentRoutes}
+    {domainRoutes}
+    {utilityRoutes}
+    {calculationRoutes}
+    {linkRoutes}
 
     <Route path="*" element={<NotFound />} />
   </Routes>

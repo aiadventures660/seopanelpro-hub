@@ -19,24 +19,22 @@ import SSLChecker from "@/pages/tools/SSLChecker";
 import RedirectChecker from "@/pages/tools/RedirectChecker";
 import TextHtmlRatio from "@/pages/tools/TextHtmlRatio";
 
-const SeoRoutes = () => (
-  <>
-    <Route path="/tools/meta-analyzer" element={<MetaAnalyzer />} />
-    <Route path="/tools/keyword-density" element={<KeywordDensity />} />
-    <Route path="/tools/robots-generator" element={<RobotsGenerator />} />
-    <Route path="/tools/sitemap-generator" element={<SitemapGenerator />} />
-    <Route path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />
-    <Route path="/tools/canonical-tag-generator" element={<CanonicalTagGenerator />} />
-    <Route path="/tools/hreflang-generator" element={<HreflangGenerator />} />
-    <Route path="/tools/opengraph-generator" element={<OpenGraphGenerator />} />
-    <Route path="/tools/twitter-card-generator" element={<TwitterCardGenerator />} />
-    <Route path="/tools/seo-score-checker" element={<SEOScoreChecker />} />
-    <Route path="/tools/mobile-friendly-test" element={<MobileFriendlyTest />} />
-    <Route path="/tools/keyword-position-tracker" element={<KeywordPositionTracker />} />
-    <Route path="/tools/ssl-checker" element={<SSLChecker />} />
-    <Route path="/tools/redirect-checker" element={<RedirectChecker />} />
-    <Route path="/tools/text-html-ratio" element={<TextHtmlRatio />} />
-  </>
-);
+const seoRoutes = [
+  <Route key="meta-analyzer" path="/tools/meta-analyzer" element={<MetaAnalyzer />} />,
+  <Route key="keyword-density" path="/tools/keyword-density" element={<KeywordDensity />} />,
+  <Route key="robots-generator" path="/tools/robots-generator" element={<RobotsGenerator />} />,
+  <Route key="sitemap-generator" path="/tools/sitemap-generator" element={<SitemapGenerator />} />,
+  <Route key="pagespeed-analyzer" path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />,
+  <Route key="canonical-tag-generator" path="/tools/canonical-tag-generator" element={<CanonicalTagGenerator />} />,
+  <Route key="hreflang-generator" path="/tools/hreflang-generator" element={<HreflangGenerator />} />,
+  <Route key="opengraph-generator" path="/tools/opengraph-generator" element={<OpenGraphGenerator />} />,
+  <Route key="twitter-card-generator" path="/tools/twitter-card-generator" element={<TwitterCardGenerator />} />,
+  <Route key="seo-score-checker" path="/tools/seo-score-checker" element={<SEOScoreChecker />} />,
+  <Route key="mobile-friendly-test" path="/tools/mobile-friendly-test" element={<MobileFriendlyTest />} />,
+  <Route key="keyword-position-tracker" path="/tools/keyword-position-tracker" element={<KeywordPositionTracker />} />,
+  <Route key="ssl-checker" path="/tools/ssl-checker" element={<SSLChecker />} />,
+  <Route key="redirect-checker" path="/tools/redirect-checker" element={<RedirectChecker />} />,
+  <Route key="text-html-ratio" path="/tools/text-html-ratio" element={<TextHtmlRatio />} />
+];
 
-export default SeoRoutes;
+export default seoRoutes;
