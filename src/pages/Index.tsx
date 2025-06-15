@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator, Link, Gift } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
@@ -15,11 +16,13 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTools, setFilteredTools] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   // Use the scroll hook to scroll to the last viewed tool
   useScrollToTool();
 
-  const allTools = [
+  const allTools = useMemo(() => [
     ...seoTools,
     ...socialMediaTools, 
     ...contentTools,
@@ -28,27 +31,37 @@ const Index = () => {
     ...calculationTools,
     ...linkTools,
     ...viralTools
-  ];
+  ], []);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    if (query.length > 0) {
+  useEffect(() => {
+    const query = searchParams.get('q');
+    setSearchQuery(query || '');
+
+    if (query) {
       setIsSearching(true);
+      const lowerCaseQuery = query.toLowerCase();
       const filtered = allTools.filter(tool =>
-        tool.name.toLowerCase().includes(query.toLowerCase()) ||
-        tool.description.toLowerCase().includes(query.toLowerCase()) ||
-        tool.category.toLowerCase().includes(query.toLowerCase())
+        tool.name.toLowerCase().includes(lowerCaseQuery) ||
+        tool.description.toLowerCase().includes(lowerCaseQuery) ||
+        tool.category.toLowerCase().includes(lowerCaseQuery)
       );
       setFilteredTools(filtered);
     } else {
       setIsSearching(false);
       setFilteredTools([]);
     }
+  }, [searchParams, allTools]);
+
+  const handleSearch = (query: string) => {
+    if (query.length > 0) {
+      navigate(`/?q=${encodeURIComponent(query)}`);
+    } else {
+      navigate('/');
+    }
   };
 
   const handleBackToHome = () => {
-    setIsSearching(false);
-    setSearchQuery('');
+    navigate('/');
   };
 
   return (
