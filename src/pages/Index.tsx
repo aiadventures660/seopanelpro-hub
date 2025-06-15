@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator, Link } from 'lucide-react';
+import { TrendingUp, Globe, Smartphone, PenTool, Wrench, Calculator } from 'lucide-react';
 import CategorySection from '@/components/CategorySection';
 import HeroSection from '@/components/HeroSection';
 import Header from '@/components/Header';
@@ -8,7 +9,7 @@ import SearchResults from '@/components/SearchResults';
 import PopularToolsSection from '@/components/PopularToolsSection';
 import TrustSection from '@/components/TrustSection';
 import { useScrollToTool } from '@/hooks/useScrollPosition';
-import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools } from '@/data/tools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools } from '@/data/tools';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,8 +25,7 @@ const Index = () => {
     ...contentTools,
     ...domainTools,
     ...utilityTools,
-    ...calculationTools,
-    ...linkTools
+    ...calculationTools
   ];
 
   const handleSearch = (query: string) => {
@@ -115,15 +115,6 @@ const Index = () => {
               tools={calculationTools}
               category="calculation"
               variant="secondary"
-            />
-
-            {/* NEW: Link & Backlink Tools */}
-            <CategorySection
-              title="Link & Backlink Tools"
-              description="Analyze links, discover backlinks, anchors, broken links, and redirects for SEO & site health."
-              icon={Link}
-              tools={linkTools}
-              category="link"
             />
 
             <TrustSection />
