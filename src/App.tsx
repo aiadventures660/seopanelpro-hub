@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import AppRoutes from "./AppRoutes";
+import CookieBanner from "@/components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AppRoutes />
+          <CookieBanner />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

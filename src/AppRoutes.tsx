@@ -6,6 +6,11 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bookmarks from "./pages/Bookmarks";
 import ToolRequest from "./pages/ToolRequest";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import CookiePolicy from "./pages/CookiePolicy";
 
 import seoRoutes from './routes/SeoRoutes';
 import socialMediaRoutes from './routes/SocialMediaRoutes';
@@ -21,6 +26,11 @@ const AppRoutes = () => (
     <Route path="/" element={<Index />} />
     <Route path="/bookmarks" element={<Bookmarks />} />
     <Route path="/tool-request" element={<ToolRequest />} />
+    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+    <Route path="/terms-of-service" element={<TermsOfService />} />
+    <Route path="/cookie-policy" element={<CookiePolicy />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/contact" element={<Contact />} />
     
     {seoRoutes}
     {socialMediaRoutes}

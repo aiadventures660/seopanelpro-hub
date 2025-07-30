@@ -57,12 +57,21 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+            <div className="flex flex-wrap gap-6 text-sm text-gray-400 mb-4 md:mb-0">
+              <a href="/about" className="hover:text-white transition-colors">About Us</a>
+              <a href="/contact" className="hover:text-white transition-colors">Contact</a>
+              <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a>
+            </div>
+            <p className="text-gray-400 text-sm flex items-center">
+              Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> for digital marketers
+            </p>
+          </div>
+          <p className="text-gray-400 text-sm text-center">
             © 2024 SEO Panel Pro. All rights reserved.
-          </p>
-          <p className="text-gray-400 text-sm flex items-center mt-4 md:mt-0">
-            Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> for digital marketers
           </p>
         </div>
       </div>
