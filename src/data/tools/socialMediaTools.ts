@@ -136,5 +136,14 @@ export const socialMediaTools: Tool[] = [
     icon: '🎯',
     route: '/tools/facebook-ad-headline-generator',
     featured: true
+  },
+  {
+    id: 'ai-instagram-bio-rewriter',
+    name: 'AI Instagram Bio Rewriter',
+    description: 'Let AI craft a compelling and engaging Instagram bio for you',
+    category: 'Social Media',
+    icon: '✨',
+    route: '/tools/ai-instagram-bio-rewriter',
+    featured: true
   }
 ];

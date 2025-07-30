@@ -16,6 +16,7 @@ import HashtagGenerator from "@/pages/tools/HashtagGenerator";
 import ProfilePictureResizer from "@/pages/tools/ProfilePictureResizer";
 import SocialMediaScheduler from "@/pages/tools/SocialMediaScheduler";
 import FacebookAdHeadlineGenerator from "@/pages/tools/FacebookAdHeadlineGenerator";
+import AIInstagramBioRewriter from "@/pages/tools/AIInstagramBioRewriter";
 
 const socialMediaRoutes = [
   <Route key="youtube-thumbnail" path="/tools/youtube-thumbnail" element={<YouTubeThumbnail />} />,
@@ -31,7 +32,8 @@ const socialMediaRoutes = [
   <Route key="hashtag-generator-reels" path="/tools/hashtag-generator-reels" element={<HashtagGenerator />} />,
   <Route key="profile-picture-resizer" path="/tools/profile-picture-resizer" element={<ProfilePictureResizer />} />,
   <Route key="social-media-scheduler" path="/tools/social-media-scheduler" element={<SocialMediaScheduler />} />,
-  <Route key="facebook-ad-headline-generator" path="/tools/facebook-ad-headline-generator" element={<FacebookAdHeadlineGenerator />} />
+  <Route key="facebook-ad-headline-generator" path="/tools/facebook-ad-headline-generator" element={<FacebookAdHeadlineGenerator />} />,
+  <Route key="ai-instagram-bio-rewriter" path="/tools/ai-instagram-bio-rewriter" element={<AIInstagramBioRewriter />} />
 ];
 
 export default socialMediaRoutes;
