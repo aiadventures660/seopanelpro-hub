@@ -14,10 +14,100 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tool_requests: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          status: string | null
+          tool_category: string | null
+          tool_description: string
+          tool_name: string
+          updated_at: string
+          use_case: string | null
+          user_session: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          status?: string | null
+          tool_category?: string | null
+          tool_description: string
+          tool_name: string
+          updated_at?: string
+          use_case?: string | null
+          user_session: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          status?: string | null
+          tool_category?: string | null
+          tool_description?: string
+          tool_name?: string
+          updated_at?: string
+          use_case?: string | null
+          user_session?: string
+        }
+        Relationships: []
+      }
+      tool_usage: {
+        Row: {
+          created_at: string
+          id: string
+          tool_id: string
+          user_session: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          tool_id: string
+          user_session: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          tool_id?: string
+          user_session?: string
+        }
+        Relationships: []
+      }
+      user_bookmarks: {
+        Row: {
+          created_at: string
+          id: string
+          tool_id: string
+          user_session: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          tool_id: string
+          user_session: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          tool_id?: string
+          user_session?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      tool_usage_stats: {
+        Row: {
+          last_used: string | null
+          tool_id: string | null
+          total_uses: number | null
+          unique_users: number | null
+          uses_last_30_days: number | null
+          uses_last_7_days: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
