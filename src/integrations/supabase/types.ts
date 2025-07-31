@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      security_logs: {
+        Row: {
+          created_at: string
+          event_details: Json | null
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          timestamp: string
+          user_agent: string | null
+          user_session: string
+        }
+        Insert: {
+          created_at?: string
+          event_details?: Json | null
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          timestamp?: string
+          user_agent?: string | null
+          user_session: string
+        }
+        Update: {
+          created_at?: string
+          event_details?: Json | null
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          timestamp?: string
+          user_agent?: string | null
+          user_session?: string
+        }
+        Relationships: []
+      }
       tool_requests: {
         Row: {
           created_at: string

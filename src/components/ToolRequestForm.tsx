@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Send, Lightbulb } from 'lucide-react';
+import { validateInput, checkRateLimit, logSecurityEvent, sanitizeUserInput, getSessionId } from '@/utils/securityUtils';
 
 const ToolRequestForm = () => {
   const [formData, setFormData] = useState({
@@ -30,22 +31,43 @@ const ToolRequestForm = () => {
     'Other'
   ];
 
-  const getSessionId = (): string => {
-    let sessionId = localStorage.getItem('tool_session_id');
-    if (!sessionId) {
-      sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      localStorage.setItem('tool_session_id', sessionId);
-    }
-    return sessionId;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.toolName.trim() || !formData.toolDescription.trim()) {
+    // Enhanced input validation
+    if (!validateInput.text(formData.toolName, 100) || !formData.toolName.trim()) {
       toast({
-        title: "Missing Information",
-        description: "Please provide at least a tool name and description.",
+        title: "Invalid Input",
+        description: "Tool name is required and must be under 100 characters.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!validateInput.text(formData.toolDescription, 500) || !formData.toolDescription.trim()) {
+      toast({
+        title: "Invalid Input", 
+        description: "Tool description is required and must be under 500 characters.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.email && !validateInput.email(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Rate limiting check
+    const sessionId = getSessionId();
+    if (!checkRateLimit(`tool_request_${sessionId}`)) {
+      toast({
+        title: "Too Many Requests",
+        description: "Please wait before submitting another request.",
         variant: "destructive",
       });
       return;
@@ -54,20 +76,19 @@ const ToolRequestForm = () => {
     setIsSubmitting(true);
     
     try {
-      const sessionId = getSessionId();
-      
       const { error } = await supabase
         .from('tool_requests')
         .insert({
           user_session: sessionId,
-          tool_name: formData.toolName.trim(),
-          tool_description: formData.toolDescription.trim(),
+          tool_name: sanitizeUserInput(formData.toolName.trim()),
+          tool_description: sanitizeUserInput(formData.toolDescription.trim()),
           tool_category: formData.toolCategory || null,
-          use_case: formData.useCase.trim() || null,
-          email: formData.email.trim() || null
+          use_case: formData.useCase ? sanitizeUserInput(formData.useCase.trim()) : null,
+          email: formData.email ? sanitizeUserInput(formData.email.trim()) : null
         });
 
       if (error) {
+        logSecurityEvent('tool_request_error', { error: error.message });
         throw error;
       }
 
