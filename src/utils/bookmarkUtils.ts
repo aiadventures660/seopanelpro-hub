@@ -1,19 +1,21 @@
 
 import { supabase } from '@/integrations/supabase/client';
-
-// Get the same session ID used for tool usage tracking
-const getSessionId = (): string => {
-  let sessionId = localStorage.getItem('tool_session_id');
-  if (!sessionId) {
-    sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    localStorage.setItem('tool_session_id', sessionId);
-  }
-  return sessionId;
-};
+import { getSessionId, validateInput, checkRateLimit, logSecurityEvent } from './securityUtils';
 
 export const addBookmark = async (toolId: string): Promise<boolean> => {
   try {
+    // Input validation
+    if (!validateInput.toolId(toolId)) {
+      logSecurityEvent('invalid_bookmark_tool_id', { toolId });
+      return false;
+    }
+
     const sessionId = getSessionId();
+    
+    // Rate limiting
+    if (!checkRateLimit(`bookmark_${sessionId}`)) {
+      return false;
+    }
     
     const { error } = await supabase
       .from('user_bookmarks')
@@ -23,6 +25,7 @@ export const addBookmark = async (toolId: string): Promise<boolean> => {
       });
 
     if (error) {
+      logSecurityEvent('bookmark_add_error', { toolId, error: error.message });
       console.error('Error adding bookmark:', error);
       return false;
     }

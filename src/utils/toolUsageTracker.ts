@@ -1,19 +1,21 @@
 
 import { supabase } from '@/integrations/supabase/client';
-
-// Generate a simple session ID for anonymous tracking
-const getSessionId = (): string => {
-  let sessionId = localStorage.getItem('tool_session_id');
-  if (!sessionId) {
-    sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    localStorage.setItem('tool_session_id', sessionId);
-  }
-  return sessionId;
-};
+import { getSessionId, validateInput, checkRateLimit, logSecurityEvent } from './securityUtils';
 
 export const trackToolUsage = async (toolId: string): Promise<void> => {
   try {
+    // Input validation
+    if (!validateInput.toolId(toolId)) {
+      logSecurityEvent('invalid_tool_id', { toolId });
+      throw new Error('Invalid tool ID');
+    }
+
     const sessionId = getSessionId();
+    
+    // Rate limiting
+    if (!checkRateLimit(`tool_usage_${sessionId}`)) {
+      throw new Error('Rate limit exceeded');
+    }
     
     const { error } = await supabase
       .from('tool_usage')
@@ -23,6 +25,7 @@ export const trackToolUsage = async (toolId: string): Promise<void> => {
       });
 
     if (error) {
+      logSecurityEvent('tool_usage_error', { toolId, error: error.message });
       console.error('Error tracking tool usage:', error);
     }
   } catch (error) {
