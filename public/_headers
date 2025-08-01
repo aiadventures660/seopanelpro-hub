@@ -1,8 +1,12 @@
 /*
-  Content-Security-Policy: default-src 'self' https://iupflbdbxgzixmmjuzrg.supabase.co; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://iupflbdbxgzixmmjuzrg.supabase.co wss://iupflbdbxgzixmmjuzrg.supabase.co; frame-ancestors 'none';
+  # Enhanced Security Headers
+  Content-Security-Policy: default-src 'self' https://iupflbdbxgzixmmjuzrg.supabase.co; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://api.ipify.org; connect-src 'self' https://iupflbdbxgzixmmjuzrg.supabase.co wss://iupflbdbxgzixmmjuzrg.supabase.co https://api.ipify.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), fullscreen=(), display-capture=()
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin

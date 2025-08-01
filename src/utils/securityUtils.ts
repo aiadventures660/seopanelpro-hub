@@ -9,6 +9,52 @@ export const generateSecureSessionId = (): string => {
   return `session_${timestamp}_${randomString}`;
 };
 
+// Enhanced security event logging
+export const logSecurityEvent = async (
+  eventType: string, 
+  details: Record<string, any> = {},
+  severity: 'low' | 'medium' | 'high' | 'critical' = 'medium'
+): Promise<void> => {
+  try {
+    // Get client IP (best effort)
+    const getClientIP = async (): Promise<string | null> => {
+      try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+      } catch {
+        return null;
+      }
+    };
+
+    const ip = await getClientIP();
+    
+    // Log to database using existing security_logs table
+    await supabase
+      .from('security_logs')
+      .insert({
+        event_type: eventType,
+        user_session: getSessionId(),
+        ip_address: ip,
+        user_agent: navigator.userAgent,
+        event_details: { ...details, severity }
+      });
+
+    // Also log to console for immediate visibility
+    console.warn('[SECURITY EVENT]', {
+      type: eventType,
+      severity,
+      details,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      session: getSessionId(),
+      ip
+    });
+  } catch (error) {
+    console.error('Failed to log security event:', error);
+  }
+};
+
 // Session expiration management
 const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 hours
 const SESSION_ROTATION_INTERVAL = 6 * 60 * 60 * 1000; // 6 hours
@@ -123,25 +169,6 @@ export const checkRateLimit = (identifier: string): boolean => {
   return true;
 };
 
-// Security event logging - simplified to avoid TypeScript issues
-export const logSecurityEvent = async (
-  eventType: string, 
-  details: Record<string, any> = {}
-): Promise<void> => {
-  try {
-    // For now, log to console with structured format
-    // In production, this would be sent to a proper logging service
-    console.warn('[SECURITY EVENT]', {
-      type: eventType,
-      details,
-      timestamp: new Date().toISOString(),
-      userAgent: navigator.userAgent,
-      session: getSessionId()
-    });
-  } catch (error) {
-    console.error('Failed to log security event:', error);
-  }
-};
 
 // Content Security Policy helpers
 export const sanitizeUserInput = (input: string): string => {

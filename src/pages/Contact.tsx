@@ -23,6 +23,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Import security utilities
+    const { validateInput, sanitizeUserInput, checkRateLimit, logSecurityEvent, getSessionId } = await import('@/utils/securityUtils');
+    
+    // Enhanced validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Missing Information",
@@ -32,10 +36,60 @@ const Contact = () => {
       return;
     }
 
+    // Validate email format
+    if (!validateInput.email(formData.email)) {
+      toast({
+        title: 'Validation Error', 
+        description: 'Please enter a valid email address',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    // Check rate limiting
+    const sessionId = getSessionId();
+    if (!checkRateLimit(`contact_form_${sessionId}`)) {
+      toast({
+        title: 'Rate Limit Exceeded',
+        description: 'Please wait before sending another message',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    // Validate text inputs
+    if (!validateInput.text(formData.name, 100) || 
+        !validateInput.text(formData.subject, 200) || 
+        !validateInput.text(formData.message, 2000)) {
+      toast({
+        title: 'Validation Error',
+        description: 'Input too long or invalid format',
+        variant: 'destructive'
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Sanitize inputs
+      const sanitizedData = {
+        name: sanitizeUserInput(formData.name.trim()),
+        email: sanitizeUserInput(formData.email.trim()),
+        subject: sanitizeUserInput(formData.subject.trim()),
+        message: sanitizeUserInput(formData.message.trim())
+      };
+
+      // Log contact attempt
+      await logSecurityEvent('contact_form_submitted', {
+        name_length: sanitizedData.name.length,
+        has_subject: !!sanitizedData.subject,
+        message_length: sanitizedData.message.length
+      }, 'low');
+
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
         title: "Message Sent!",
         description: "Thank you for your message. We'll get back to you soon.",
@@ -47,9 +101,16 @@ const Contact = () => {
         subject: '',
         message: ''
       });
-      
+    } catch (error) {
+      await logSecurityEvent('contact_form_error', { error: String(error) }, 'medium');
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again.',
+        variant: 'destructive'
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
