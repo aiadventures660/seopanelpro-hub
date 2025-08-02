@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, MessageSquare, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { CaptchaVerification } from '@/components/tools/contact/CaptchaVerification';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,6 +33,16 @@ const Contact = () => {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Check CAPTCHA verification
+    if (!isCaptchaVerified) {
+      toast({
+        title: "Security Verification Required",
+        description: "Please complete the security verification before submitting.",
         variant: "destructive",
       });
       return;
@@ -224,6 +236,8 @@ const Contact = () => {
                       required
                     />
                   </div>
+                  
+                  <CaptchaVerification onVerify={setIsCaptchaVerified} />
                   
                   <Button
                     type="submit"

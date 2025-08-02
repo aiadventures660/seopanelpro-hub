@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import AppRoutes from "./AppRoutes";
 import CookieBanner from "@/components/CookieBanner";
+import { SecurityMonitor } from "@/components/SecurityMonitor";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <BrowserRouter>
           <AppRoutes />
           <CookieBanner />
+          <SecurityMonitor />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
