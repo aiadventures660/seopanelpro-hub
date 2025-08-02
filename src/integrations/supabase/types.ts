@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      security_events: {
+        Row: {
+          created_at: string
+          event_data: Json | null
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          resolved: boolean | null
+          severity: string
+          user_agent: string | null
+          user_session: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_data?: Json | null
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          resolved?: boolean | null
+          severity?: string
+          user_agent?: string | null
+          user_session?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_data?: Json | null
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          resolved?: boolean | null
+          severity?: string
+          user_agent?: string | null
+          user_session?: string | null
+        }
+        Relationships: []
+      }
       security_logs: {
         Row: {
           created_at: string
@@ -143,7 +179,10 @@ export type Database = {
       }
     }
     Functions: {
-      [_ in never]: never
+      clean_old_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
