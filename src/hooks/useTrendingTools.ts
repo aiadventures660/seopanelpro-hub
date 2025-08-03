@@ -16,19 +16,20 @@ export const useTrendingTools = () => {
   return useQuery({
     queryKey: ['trending-tools'],
     queryFn: async (): Promise<Tool[]> => {
-      const { data: usageStats, error } = await supabase
-        .from('tool_usage_stats')
-        .select('*')
-        .order('uses_last_7_days', { ascending: false })
-        .limit(8);
+      try {
+        const { data: usageStats, error } = await supabase
+          .from('tool_usage_stats')
+          .select('*')
+          .order('uses_last_7_days', { ascending: false })
+          .limit(8);
 
-      if (error) {
-        console.error('Error fetching tool usage stats:', error);
-        // Fallback to static popular tools if there's an error
-        return [...seoTools, ...socialMediaTools, ...contentTools, ...domainTools, ...utilityTools, ...calculationTools, ...linkTools]
-          .filter(tool => tool.popular)
-          .slice(0, 8);
-      }
+        if (error) {
+          console.error('Error fetching tool usage stats:', error);
+          // Fallback to static popular tools if there's an error
+          return [...seoTools, ...socialMediaTools, ...contentTools, ...domainTools, ...utilityTools, ...calculationTools, ...linkTools, ...viralTools]
+            .filter(tool => tool.popular)
+            .slice(0, 8);
+        }
 
       // Map usage stats to actual tool objects
       const allTools = [
@@ -62,13 +63,22 @@ export const useTrendingTools = () => {
           trendingTools.push(...popularTools.slice(0, 8 - trendingTools.length));
         }
       } else {
-        // If no usage data exists yet, fall back to static popular tools
-        return allTools.filter(tool => tool.popular).slice(0, 8);
-      }
+          // If no usage data exists yet, fall back to static popular tools
+          return allTools.filter(tool => tool.popular).slice(0, 8);
+        }
 
-      return trendingTools.slice(0, 8);
+        return trendingTools.slice(0, 8);
+      } catch (error) {
+        console.error('Error in trending tools query:', error);
+        // Ultimate fallback to static popular tools
+        return [...seoTools, ...socialMediaTools, ...contentTools, ...domainTools, ...utilityTools, ...calculationTools, ...linkTools, ...viralTools]
+          .filter(tool => tool.popular)
+          .slice(0, 8);
+      }
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 };

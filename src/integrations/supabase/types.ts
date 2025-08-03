@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_content_generations: {
+        Row: {
+          created_at: string
+          generated_content: string
+          id: string
+          prompt: string
+          type: string
+          user_session: string | null
+        }
+        Insert: {
+          created_at?: string
+          generated_content: string
+          id?: string
+          prompt: string
+          type: string
+          user_session?: string | null
+        }
+        Update: {
+          created_at?: string
+          generated_content?: string
+          id?: string
+          prompt?: string
+          type?: string
+          user_session?: string | null
+        }
+        Relationships: []
+      }
       security_events: {
         Row: {
           created_at: string

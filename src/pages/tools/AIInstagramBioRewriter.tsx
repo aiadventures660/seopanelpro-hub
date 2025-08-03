@@ -1,8 +1,7 @@
 
 import React, { useState } from 'react';
 import { Sparkles } from 'lucide-react';
-import { useMutation } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
+import { useAIGeneration } from '@/hooks/useAIGeneration';
 
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
@@ -15,46 +14,15 @@ import { Skeleton } from '@/components/ui/skeleton';
 const AIInstagramBioRewriter = () => {
   const [bio, setBio] = useState('');
   const [rewrittenBio, setRewrittenBio] = useState('');
-  const { toast } = useToast();
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (currentBio: string) => {
-      const { data, error } = await supabase.functions.invoke('generate-ai-content', {
-        body: { 
-          type: 'instagram-bio',
-          prompt: currentBio 
-        },
-      });
-      if (error) throw new Error(error.message);
-      return data.generatedText;
-    },
-    onSuccess: (data) => {
-      setRewrittenBio(data);
-      toast({
-        title: 'Bio Rewritten!',
-        description: 'Your new AI-powered Instagram bio is ready.',
-      });
-    },
-    onError: (error) => {
-      toast({
-        title: 'Error',
-        description: "Failed to rewrite bio. You might need to set up your OpenAI API key in Supabase.",
-        variant: 'destructive',
-      });
-      console.error(error);
-    },
+  const { generate, isGenerating } = useAIGeneration({
+    type: 'instagram-bio',
+    onSuccess: (data) => setRewrittenBio(data),
   });
 
   const handleRewrite = () => {
-    if (!bio.trim()) {
-      toast({
-        title: 'Uh oh!',
-        description: 'Please enter your current bio first.',
-        variant: 'destructive',
-      });
-      return;
-    }
-    mutate(bio);
+    if (!bio.trim()) return;
+    generate(bio);
   };
 
   return (
@@ -76,18 +44,18 @@ const AIInstagramBioRewriter = () => {
                 rows={4}
                 className="resize-none"
               />
-              <Button onClick={handleRewrite} disabled={isPending} className="w-full">
-                {isPending ? 'Rewriting...' : 'Rewrite Bio with AI'}
+              <Button onClick={handleRewrite} disabled={isGenerating} className="w-full">
+                {isGenerating ? 'Rewriting...' : 'Rewrite Bio with AI'}
               </Button>
             </div>
           </CardContent>
         </Card>
 
-        {(isPending || rewrittenBio) && (
+        {(isGenerating || rewrittenBio) && (
           <Card>
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold mb-4">Your New Bio:</h3>
-              {isPending ? (
+              {isGenerating ? (
                 <div className="space-y-2">
                   <Skeleton className="h-4 w-full" />
                   <Skeleton className="h-4 w-full" />
