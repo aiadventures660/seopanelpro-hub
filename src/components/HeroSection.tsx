@@ -113,24 +113,6 @@ const HeroSection = ({ onSearch, searchQuery }: HeroSectionProps) => {
           </Button>
         </div>
 
-        {/* Enhanced Trust Indicators - Mobile Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto px-4">
-          <div className="flex flex-col items-center p-4 md:p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-lg">
-            <div className="w-3 md:w-4 h-3 md:h-4 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse mb-2 md:mb-3" />
-            <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">100% Free Tools</span>
-            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400">No hidden costs</span>
-          </div>
-          <div className="flex flex-col items-center p-4 md:p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-lg">
-            <div className="w-3 md:w-4 h-3 md:h-4 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full animate-pulse mb-2 md:mb-3" />
-            <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">No Registration</span>
-            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Start immediately</span>
-          </div>
-          <div className="flex flex-col items-center p-4 md:p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 shadow-lg">
-            <div className="w-3 md:w-4 h-3 md:h-4 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse mb-2 md:mb-3" />
-            <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">Instant Results</span>
-            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Lightning fast</span>
-          </div>
-        </div>
       </div>
     </section>
   );

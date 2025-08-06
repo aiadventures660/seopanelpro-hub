@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,8 @@ import { Copy, RefreshCw, Lock, Eye, EyeOff } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { seoTools, socialMediaTools, contentTools, domainTools, utilityTools, calculationTools, linkTools, viralTools } from '@/data/tools';
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState('');
@@ -24,6 +26,17 @@ const PasswordGenerator = () => {
     excludeAmbiguous: false
   });
   const { toast } = useToast();
+
+  const allTools = useMemo(() => [
+    ...seoTools,
+    ...socialMediaTools, 
+    ...contentTools,
+    ...domainTools,
+    ...utilityTools,
+    ...calculationTools,
+    ...linkTools,
+    ...viralTools
+  ], []);
 
   const generatePassword = () => {
     const { uppercase, lowercase, numbers, symbols, excludeSimilar, excludeAmbiguous } = options;
@@ -317,6 +330,12 @@ const PasswordGenerator = () => {
             </div>
           </CardContent>
         </Card>
+
+        <RelatedTools 
+          currentToolId="password-generator"
+          currentCategory="utility"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );
