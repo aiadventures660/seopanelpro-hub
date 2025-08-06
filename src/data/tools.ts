@@ -30,6 +30,18 @@ import { calculationTools } from './tools/calculationTools';
 import { linkTools } from './tools/linkTools';
 import { viralTools } from './tools/viralTools';
 
+// Comprehensive list of all tools
+export const allTools: Tool[] = [
+  ...seoTools,
+  ...socialMediaTools,
+  ...contentTools,
+  ...domainTools,
+  ...utilityTools,
+  ...calculationTools,
+  ...linkTools,
+  ...viralTools
+];
+
 export const popularTools: Tool[] = [
   ...seoTools.filter(tool => tool.popular),
   ...socialMediaTools.filter(tool => tool.popular),

@@ -10,6 +10,8 @@ import { Bot, Plus, Trash2, Copy, Download } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface RobotRule {
   id: string;
@@ -333,6 +335,12 @@ const RobotsGenerator = () => {
             </CardContent>
           </Card>
         )}
+
+        <RelatedTools 
+          currentToolId="robots-generator"
+          currentCategory="SEO"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );

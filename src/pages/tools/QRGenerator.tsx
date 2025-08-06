@@ -4,8 +4,10 @@ import { QrCode } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import QRSettings from '@/components/tools/qr-generator/QRSettings';
 import QRPreview from '@/components/tools/qr-generator/QRPreview';
+import { allTools } from '@/data/tools';
 
 const QRGenerator = () => {
   const [qrData, setQrData] = useState('');
@@ -83,6 +85,12 @@ const QRGenerator = () => {
             onDownload={downloadQR}
           />
         </div>
+
+        <RelatedTools 
+          currentToolId="qr-generator"
+          currentCategory="Utility"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );

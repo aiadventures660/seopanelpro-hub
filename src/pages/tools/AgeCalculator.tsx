@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Gift } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import BirthDateInput from '@/components/tools/age-calculator/BirthDateInput';
 import AgeOverview from '@/components/tools/age-calculator/AgeOverview';
 import DetailedBreakdown from '@/components/tools/age-calculator/DetailedBreakdown';
 import { calculateAge, AgeResults } from '@/utils/ageCalculations';
+import { allTools } from '@/data/tools';
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState('');
@@ -41,6 +43,12 @@ const AgeCalculator = () => {
               <DetailedBreakdown results={results} />
             </>
           )}
+
+          <RelatedTools 
+            currentToolId="age-calculator"
+            currentCategory="Calculation"
+            allTools={allTools}
+          />
         </div>
       </div>
     </ToolPageLayout>

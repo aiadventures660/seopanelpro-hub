@@ -10,7 +10,9 @@ import { Copy, RefreshCw, Instagram, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { allTools } from '@/data/tools';
 
 const InstagramBioGenerator = () => {
   const [name, setName] = useState('');
@@ -258,6 +260,12 @@ const InstagramBioGenerator = () => {
           </div>
         </CardContent>
       </Card>
+
+      <RelatedTools 
+        currentToolId="instagram-bio-generator"
+        currentCategory="Social Media"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

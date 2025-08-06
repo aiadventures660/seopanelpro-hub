@@ -5,8 +5,10 @@ import { Youtube } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import UrlInput from '@/components/tools/youtube-thumbnail/UrlInput';
 import ThumbnailCard from '@/components/tools/youtube-thumbnail/ThumbnailCard';
+import { allTools } from '@/data/tools';
 
 interface ThumbnailQuality {
   name: string;
@@ -162,6 +164,12 @@ const YouTubeThumbnail = () => {
           </CardContent>
         </Card>
       )}
+
+      <RelatedTools 
+        currentToolId="youtube-thumbnail"
+        currentCategory="Social Media"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

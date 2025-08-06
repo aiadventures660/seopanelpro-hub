@@ -5,8 +5,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { FileText, Clock, BarChart3 } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import StatCard from '@/components/tools/word-counter/StatCard';
 import TextAnalysis from '@/components/tools/word-counter/TextAnalysis';
+import { allTools } from '@/data/tools';
 
 interface TextStats {
   characters: number;
@@ -87,6 +89,12 @@ const WordCounter = () => {
       </div>
 
       {text && <TextAnalysis stats={stats} />}
+
+      <RelatedTools 
+        currentToolId="word-counter"
+        currentCategory="Content"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

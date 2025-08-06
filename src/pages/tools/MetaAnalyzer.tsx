@@ -7,8 +7,10 @@ import { Search, Globe } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
 import MetaAnalysisCard from '@/components/tools/meta-analyzer/MetaAnalysisCard';
 import OpenGraphCard from '@/components/tools/meta-analyzer/OpenGraphCard';
+import { allTools } from '@/data/tools';
 
 interface MetaData {
   title: string;
@@ -117,6 +119,12 @@ const MetaAnalyzer = () => {
           <OpenGraphCard metaData={metaData} />
         </div>
       )}
+
+      <RelatedTools 
+        currentToolId="meta-analyzer"
+        currentCategory="SEO"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };
