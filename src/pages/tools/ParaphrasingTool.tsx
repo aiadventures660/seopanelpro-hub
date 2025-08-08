@@ -7,6 +7,8 @@ import { RefreshCw, Copy, FileText } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const ParaphrasingTool = () => {
   const [originalText, setOriginalText] = useState('');
@@ -186,6 +188,12 @@ const ParaphrasingTool = () => {
           </CardContent>
         </Card>
       )}
+
+      <RelatedTools 
+        currentToolId="paraphrasingtool"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

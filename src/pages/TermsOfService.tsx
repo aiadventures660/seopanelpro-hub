@@ -119,7 +119,7 @@ const TermsOfService = () => {
                 </p>
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                   <p className="text-gray-700 dark:text-gray-300">
-                    Email: terms@toolhub.com<br />
+                    Email: contact@seotoolspro.studio<br />
                     Address: [Your Business Address]
                   </p>
                 </div>

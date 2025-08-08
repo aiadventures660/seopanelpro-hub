@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Copy, RefreshCw, Hash, Check } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 const HashtagGenerator = () => {
@@ -234,6 +236,12 @@ const HashtagGenerator = () => {
             )}
           </>
         )}
+
+        <RelatedTools 
+          currentToolId="hashtag-generator"
+          currentCategory="Social Media"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );

@@ -30,7 +30,7 @@ const RelatedTools = ({ currentToolId, currentCategory, allTools, maxTools = 6 }
   }
 
   return (
-    <Card className="mt-8">
+    <Card className="mt-8 mb-12">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
           Related Tools

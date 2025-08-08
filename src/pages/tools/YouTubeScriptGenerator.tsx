@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Copy, RefreshCw, Play, Clock } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const YouTubeScriptGenerator = () => {
   const [topic, setTopic] = useState('');
@@ -242,6 +244,12 @@ That's how you master ${topic}! Subscribe for more tutorials and let me know wha
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="youtubescriptgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

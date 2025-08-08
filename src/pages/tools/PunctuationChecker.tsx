@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Copy, RefreshCw, AlertCircle, CheckCircle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface PunctuationError {
   text: string;
@@ -250,6 +252,12 @@ const PunctuationChecker = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="punctuationchecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

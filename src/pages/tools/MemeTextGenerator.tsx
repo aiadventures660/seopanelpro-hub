@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { SmilePlus } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -80,6 +82,12 @@ const MemeTextGenerator = () => {
           </CardContent>
         </Card>
       </div>
+
+      <RelatedTools 
+        currentToolId="memetextgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

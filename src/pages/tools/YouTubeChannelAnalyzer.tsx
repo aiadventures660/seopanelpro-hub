@@ -9,6 +9,8 @@ import { Separator } from '@/components/ui/separator';
 import { Search, RefreshCw, Users, Video, Eye, Calendar } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface ChannelData {
   name: string;
@@ -166,6 +168,12 @@ const YouTubeChannelAnalyzer = () => {
           </div>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="youtubechannelanalyzer"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

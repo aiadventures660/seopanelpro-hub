@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Smartphone, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface MobileIssue {
   type: 'error' | 'warning' | 'info';
@@ -153,6 +155,12 @@ const MobileFriendlyTest = () => {
           </>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="mobilefriendlytest"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

@@ -5,6 +5,8 @@ import { useAIGeneration } from '@/hooks/useAIGeneration';
 
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
@@ -68,6 +70,12 @@ const AIInstagramBioRewriter = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="aiinstagrambiorewriter"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

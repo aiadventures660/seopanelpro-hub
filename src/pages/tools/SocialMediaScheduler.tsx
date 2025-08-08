@@ -9,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, Plus, Trash2, CalendarDays } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 interface ScheduledPost {
@@ -232,6 +234,12 @@ const SocialMediaScheduler = () => {
           </Card>
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="socialmediascheduler"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

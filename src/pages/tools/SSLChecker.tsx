@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Lock, CheckCircle, XCircle, AlertTriangle, Calendar, Globe } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface SSLInfo {
   isValid: boolean;
@@ -185,6 +187,12 @@ const SSLChecker = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="sslchecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

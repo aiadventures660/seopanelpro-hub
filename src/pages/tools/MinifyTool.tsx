@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Zap, Copy, RefreshCw } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 const MinifyTool = () => {
@@ -243,6 +245,12 @@ const MinifyTool = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="minifytool"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

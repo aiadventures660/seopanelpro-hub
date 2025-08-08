@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Copy, RefreshCw, Tag, Check } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 const YouTubeTagsSuggestion = () => {
@@ -174,6 +176,12 @@ const YouTubeTagsSuggestion = () => {
           </>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="youtubetagssuggestion"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

@@ -10,6 +10,8 @@ import { Map, Plus, Trash2, Copy, Download, Globe } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface SitemapUrl {
   id: string;
@@ -335,6 +337,12 @@ const SitemapGenerator = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="sitemapgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

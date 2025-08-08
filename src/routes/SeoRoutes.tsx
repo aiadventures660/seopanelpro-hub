@@ -5,8 +5,10 @@ import { Route } from 'react-router-dom';
 // SEO tools
 import MetaAnalyzer from "@/pages/tools/MetaAnalyzer";
 import KeywordDensity from "@/pages/tools/KeywordDensity";
+import KeywordSuggestion from "@/pages/tools/KeywordSuggestion";
 import RobotsGenerator from "@/pages/tools/RobotsGenerator";
 import SitemapGenerator from "@/pages/tools/SitemapGenerator";
+import SerpPreview from "@/pages/tools/SerpPreview";
 import PageSpeedAnalyzer from "@/pages/tools/PageSpeedAnalyzer";
 import CanonicalTagGenerator from "@/pages/tools/CanonicalTagGenerator";
 import HreflangGenerator from "@/pages/tools/HreflangGenerator";
@@ -22,8 +24,10 @@ import TextHtmlRatio from "@/pages/tools/TextHtmlRatio";
 const seoRoutes = [
   <Route key="meta-analyzer" path="/tools/meta-analyzer" element={<MetaAnalyzer />} />,
   <Route key="keyword-density" path="/tools/keyword-density" element={<KeywordDensity />} />,
+  <Route key="keyword-suggestion" path="/tools/keyword-suggestion" element={<KeywordSuggestion />} />,
   <Route key="robots-generator" path="/tools/robots-generator" element={<RobotsGenerator />} />,
   <Route key="sitemap-generator" path="/tools/sitemap-generator" element={<SitemapGenerator />} />,
+  <Route key="serp-preview" path="/tools/serp-preview" element={<SerpPreview />} />,
   <Route key="pagespeed-analyzer" path="/tools/pagespeed-analyzer" element={<PageSpeedAnalyzer />} />,
   <Route key="canonical-tag-generator" path="/tools/canonical-tag-generator" element={<CanonicalTagGenerator />} />,
   <Route key="hreflang-generator" path="/tools/hreflang-generator" element={<HreflangGenerator />} />,

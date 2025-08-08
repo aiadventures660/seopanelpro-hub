@@ -8,6 +8,8 @@ import { Copy, Palette, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const ColorPicker = () => {
   const [selectedColor, setSelectedColor] = useState('#3B82F6');
@@ -275,6 +277,12 @@ const ColorPicker = () => {
             </div>
           </CardContent>
         </Card>
+
+        <RelatedTools 
+          currentToolId="color-picker"
+          currentCategory="Utility"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );

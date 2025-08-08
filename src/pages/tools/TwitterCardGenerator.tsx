@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Twitter } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const TwitterCardGenerator = () => {
   const [cardType, setCardType] = useState('summary');
@@ -143,6 +145,12 @@ const TwitterCardGenerator = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="twittercardgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

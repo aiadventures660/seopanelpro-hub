@@ -9,6 +9,8 @@ import { Copy, ArrowUpDown, Link } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const URLEncoder = () => {
   const [inputText, setInputText] = useState('');
@@ -271,6 +273,12 @@ const URLEncoder = () => {
           </CardContent>
         </Card>
       </div>
+
+      <RelatedTools 
+        currentToolId="urlencoder"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

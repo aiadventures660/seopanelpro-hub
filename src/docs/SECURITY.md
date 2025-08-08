@@ -174,7 +174,7 @@ This security implementation follows industry best practices:
 
 For security-related concerns or to report vulnerabilities:
 
-- **Email**: security@toolhub.com
+- **Email**: contact@seotoolspro.studio
 - **Response Time**: 24 hours for critical issues
 - **Responsible Disclosure**: We appreciate responsible vulnerability reporting
 

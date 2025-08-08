@@ -9,6 +9,8 @@ import { CheckCircle, AlertCircle, Copy, RefreshCw, BookOpen } from 'lucide-reac
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface GrammarError {
   type: 'grammar' | 'spelling' | 'punctuation' | 'style';
@@ -371,6 +373,12 @@ const GrammarChecker = () => {
           </div>
         </CardContent>
       </Card>
+
+      <RelatedTools 
+        currentToolId="grammarchecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

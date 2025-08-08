@@ -8,6 +8,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Copy, RefreshCw, Zap } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const CatchyHookGenerator = () => {
   const [topic, setTopic] = useState('');
@@ -118,6 +120,12 @@ const CatchyHookGenerator = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="catchyhookgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

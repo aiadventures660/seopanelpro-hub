@@ -9,6 +9,8 @@ import { Search, AlertTriangle, CheckCircle, Copy, RefreshCw } from 'lucide-reac
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface PlagiarismResult {
   text: string;
@@ -234,6 +236,12 @@ const PlagiarismChecker = () => {
           </div>
         </CardContent>
       </Card>
+
+      <RelatedTools 
+        currentToolId="plagiarismchecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

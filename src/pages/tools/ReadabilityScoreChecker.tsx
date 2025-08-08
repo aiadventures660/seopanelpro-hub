@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { BookOpen, Calculator, BarChart3 } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -179,6 +181,12 @@ const ReadabilityScoreChecker = () => {
           )}
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="readabilityscorechecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

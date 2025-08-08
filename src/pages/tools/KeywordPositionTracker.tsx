@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Plus, Trash2 } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface KeywordResult {
   keyword: string;
@@ -201,6 +203,12 @@ const KeywordPositionTracker = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="keywordpositiontracker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

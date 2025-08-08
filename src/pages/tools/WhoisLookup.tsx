@@ -9,6 +9,8 @@ import { Separator } from '@/components/ui/separator';
 import { toast } from '@/components/ui/sonner';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface WhoisData {
   domain: string;
@@ -247,6 +249,12 @@ const WhoisLookup = () => {
           )}
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="whoislookup"
+        currentCategory="Domain"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

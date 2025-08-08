@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Package, RefreshCw, CheckCircle, XCircle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 const GZIPTest = () => {
@@ -171,6 +173,12 @@ const GZIPTest = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="gziptest"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

@@ -9,6 +9,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Copy, RefreshCw, Newspaper } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const AIBlogTitleGenerator = () => {
   const [topic, setTopic] = useState('');
@@ -122,6 +124,12 @@ const AIBlogTitleGenerator = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="aiblogtitlegenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

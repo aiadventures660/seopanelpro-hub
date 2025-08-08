@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Keyboard, Timer, Target, TrendingUp } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -244,6 +246,12 @@ const TypingSpeedTest = () => {
           )}
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="typingspeedtest"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

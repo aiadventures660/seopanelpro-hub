@@ -3,6 +3,8 @@ import React, { useState, useMemo } from 'react';
 import { Key } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { useToast } from '@/hooks/use-toast';
 import { generatePasswordUtil, getPasswordStrength } from '@/utils/passwordUtils';
 import PasswordSettings from '@/components/tools/random-password-generator/PasswordSettings';
@@ -78,6 +80,12 @@ const RandomPasswordGenerator = () => {
           <PasswordSecurityTips />
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="randompasswordgenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

@@ -9,6 +9,8 @@ import { Copy, Search, Tag, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const YouTubeTagsExtractor = () => {
   const [videoUrl, setVideoUrl] = useState('');
@@ -244,6 +246,12 @@ const YouTubeTagsExtractor = () => {
           </div>
         </CardContent>
       </Card>
+
+      <RelatedTools 
+        currentToolId="youtube-tags-extractor"
+        currentCategory="Viral"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

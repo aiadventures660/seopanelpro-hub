@@ -8,6 +8,8 @@ import { Copy, FileText, Minimize2, Maximize2, CheckCircle, XCircle } from 'luci
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const JSONFormatter = () => {
   const [inputJson, setInputJson] = useState('');
@@ -328,6 +330,12 @@ const JSONFormatter = () => {
           </CardContent>
         </Card>
       </div>
+
+      <RelatedTools 
+        currentToolId="jsonformatter"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

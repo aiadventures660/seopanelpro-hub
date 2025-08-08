@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Calculator, Home, TrendingUp, DollarSign } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -187,6 +189,12 @@ const LoanEMICalculator = () => {
           </Card>
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="loanemicalculator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

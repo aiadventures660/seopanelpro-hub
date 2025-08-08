@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Copy, RefreshCw, BookOpen, Shuffle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const EssayRewriterTool = () => {
   const [inputEssay, setInputEssay] = useState('');
@@ -208,6 +210,12 @@ const EssayRewriterTool = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="essayrewritertool"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

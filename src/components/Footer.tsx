@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
                 <Zap className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold">SEO Panel Pro</h3>
+              <h3 className="text-xl font-bold">Seo Tools Pro Studio</h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Your complete toolkit for SEO optimization, social media management, and content creation. 
@@ -72,7 +72,7 @@ const Footer = () => {
             </p>
           </div>
           <p className="text-gray-400 text-sm text-center">
-            © 2024 SEO Panel Pro. All rights reserved.
+            © 2024 Seo Tools Pro Studio. All rights reserved.
           </p>
         </div>
       </div>

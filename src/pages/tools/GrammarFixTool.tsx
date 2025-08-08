@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Copy, RefreshCw, Wrench, CheckCircle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface GrammarFix {
   original: string;
@@ -160,6 +162,12 @@ const GrammarFixTool = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="grammarfixtool"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

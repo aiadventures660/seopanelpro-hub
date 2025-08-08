@@ -8,6 +8,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Link } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const CanonicalTagGenerator = () => {
   const [url, setUrl] = useState('');
@@ -81,6 +83,12 @@ const CanonicalTagGenerator = () => {
           </Card>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="canonicaltaggenerator"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

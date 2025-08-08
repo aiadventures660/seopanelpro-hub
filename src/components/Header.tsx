@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode-toggle';
-import { Heart, Plus, Home } from 'lucide-react';
+import { Heart, Plus, Home, Info, Mail, Shield, FileText, Cookie } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
         >
           <div className="text-xl md:text-2xl">🛠️</div>
           <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            ToolKit Pro
+            Seo Tools Pro Studio
           </span>
         </div>
         
@@ -32,6 +32,26 @@ const Header = () => {
           >
             <Home className="h-4 w-4" />
             <span className="hidden sm:inline text-sm md:text-base">Home</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/about')}
+            className="flex items-center space-x-1 md:space-x-2 px-2 md:px-3"
+          >
+            <Info className="h-4 w-4" />
+            <span className="hidden sm:inline text-sm md:text-base">About</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/contact')}
+            className="flex items-center space-x-1 md:space-x-2 px-2 md:px-3"
+          >
+            <Mail className="h-4 w-4" />
+            <span className="hidden sm:inline text-sm md:text-base">Contact</span>
           </Button>
           
           <Button
@@ -52,6 +72,36 @@ const Header = () => {
           >
             <Plus className="h-4 w-4" />
             <span className="hidden lg:inline text-sm md:text-base">Request Tool</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/privacy-policy')}
+            className="flex items-center space-x-1 md:space-x-2 px-2 md:px-3"
+          >
+            <Shield className="h-4 w-4" />
+            <span className="hidden lg:inline text-sm md:text-base">Privacy</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/terms-of-service')}
+            className="flex items-center space-x-1 md:space-x-2 px-2 md:px-3"
+          >
+            <FileText className="h-4 w-4" />
+            <span className="hidden lg:inline text-sm md:text-base">Terms</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/cookie-policy')}
+            className="flex items-center space-x-1 md:space-x-2 px-2 md:px-3"
+          >
+            <Cookie className="h-4 w-4" />
+            <span className="hidden lg:inline text-sm md:text-base">Cookies</span>
           </Button>
           
           <ModeToggle />

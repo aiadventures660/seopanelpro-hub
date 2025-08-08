@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Palette, Eye, CheckCircle, XCircle } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -244,6 +246,12 @@ const ColorContrastChecker = () => {
           </Card>
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="colorcontrastchecker"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

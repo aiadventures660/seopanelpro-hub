@@ -8,6 +8,8 @@ import { Copy, ArrowUpDown, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const Base64Encoder = () => {
   const [inputText, setInputText] = useState('');
@@ -225,6 +227,12 @@ const Base64Encoder = () => {
           </CardContent>
         </Card>
       </div>
+
+      <RelatedTools 
+        currentToolId="base64encoder"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

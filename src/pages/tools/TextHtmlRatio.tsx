@@ -9,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { FileText, Code } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 interface RatioResult {
   textContent: number;
@@ -215,6 +217,12 @@ const TextHtmlRatio = () => {
           </>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="texthtmlratio"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

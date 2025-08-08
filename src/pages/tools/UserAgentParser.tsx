@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Monitor, RefreshCw, Smartphone, Globe } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 import { toast } from 'sonner';
 
 const UserAgentParser = () => {
@@ -254,6 +256,12 @@ const UserAgentParser = () => {
           </div>
         )}
       </div>
+
+      <RelatedTools 
+        currentToolId="useragentparser"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };

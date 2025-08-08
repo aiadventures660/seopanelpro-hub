@@ -7,6 +7,8 @@ import { Copy, Type } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const TextCaseConverter = () => {
   const [inputText, setInputText] = useState('');
@@ -206,6 +208,12 @@ const TextCaseConverter = () => {
             </div>
           </CardContent>
         </Card>
+
+        <RelatedTools 
+          currentToolId="text-case-converter"
+          currentCategory="Content"
+          allTools={allTools}
+        />
       </div>
     </ToolPageLayout>
   );

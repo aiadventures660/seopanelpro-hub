@@ -155,7 +155,7 @@ const Contact = () => {
                 <Mail className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email Us</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-2">General inquiries</p>
-                <p className="text-blue-600 dark:text-blue-400">contact@toolhub.com</p>
+                <p className="text-blue-600 dark:text-blue-400">contact@seotoolspro.studio</p>
               </CardContent>
             </Card>
 
@@ -164,7 +164,7 @@ const Contact = () => {
                 <MessageSquare className="h-12 w-12 text-green-600 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Support</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-2">Technical support</p>
-                <p className="text-green-600 dark:text-green-400">support@toolhub.com</p>
+                <p className="text-green-600 dark:text-green-400">contact@seotoolspro.studio</p>
               </CardContent>
             </Card>
 

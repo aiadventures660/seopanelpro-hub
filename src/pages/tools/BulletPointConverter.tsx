@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Copy, RefreshCw, List } from 'lucide-react';
 import ToolPageLayout from '@/components/ToolPageLayout';
 import ToolHeader from '@/components/ToolHeader';
+import RelatedTools from '@/components/RelatedTools';
+import { allTools } from '@/data/tools';
 
 const BulletPointConverter = () => {
   const [bulletPoints, setBulletPoints] = useState('');
@@ -111,6 +113,12 @@ const BulletPointConverter = () => {
           </Card>
         </div>
       </div>
+
+      <RelatedTools 
+        currentToolId="bulletpointconverter"
+        currentCategory="Utility"
+        allTools={allTools}
+      />
     </ToolPageLayout>
   );
 };
